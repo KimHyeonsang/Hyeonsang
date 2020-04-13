@@ -1,4 +1,0 @@
-﻿  소스.cpp
-c:\users\asakq\source\repos\지뢰찾기_게임\지뢰찾기_게임\mapdraw.h(20): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
-c:\users\asakq\source\repos\지뢰찾기_게임\지뢰찾기_게임\소스.cpp(5): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
-  지뢰찾기_게임.vcxproj -> C:\Users\asakq\source\repos\지뢰찾기_게임\Debug\지뢰찾기_게임.exe

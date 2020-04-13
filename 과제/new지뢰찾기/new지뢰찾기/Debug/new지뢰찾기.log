@@ -1,0 +1,6 @@
+﻿  Game.cpp
+c:\users\a10\source\repos\new지뢰찾기\new지뢰찾기\mapdraw.h(20): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+c:\users\a10\source\repos\new지뢰찾기\new지뢰찾기\game.cpp(15): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a10\source\repos\new지뢰찾기\new지뢰찾기\game.cpp(17): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a10\source\repos\new지뢰찾기\new지뢰찾기\game.cpp(19): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  new지뢰찾기.vcxproj -> C:\Users\A10\source\repos\new지뢰찾기\Debug\new지뢰찾기.exe
