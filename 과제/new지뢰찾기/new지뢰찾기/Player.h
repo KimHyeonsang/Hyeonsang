@@ -1,8 +1,6 @@
 #pragma once
 #include"macro.h"
 #include"Mapdraw.h"
-#define PLAYER_X_MOVE 2
-#define PLAYER_Y_MOVE 1
 typedef struct PlayerMove
 {
 	int x;

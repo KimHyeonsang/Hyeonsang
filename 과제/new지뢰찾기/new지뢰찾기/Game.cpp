@@ -12,11 +12,11 @@ void Game::mainMenu()//메뉴
 	while (1)
 	{
 		system("cls");
-		map.gotoxy(WIDTH, HEIGHT *0.2f);
+		map.gotoxy(WIDTH*0.5f, HEIGHT *0.2f);
 		cout << "1. 게임 시작";
-		map.gotoxy(WIDTH, HEIGHT *0.3f);
+		map.gotoxy(WIDTH*0.5f, HEIGHT *0.3f);
 		cout << "2.종료";
-		map.gotoxy(WIDTH, HEIGHT *0.4f);
+		map.gotoxy(WIDTH*0.5f, HEIGHT *0.4f);
 		cin >> select;
 		switch (select)
 		{
@@ -75,7 +75,7 @@ void Game::ReSet()//플레이어 위치,지뢰초기화,
 {
 	boom.BoomReSet();//폭탄 메모리해제
 	player.PlayerSet();//플레이어 초기화
-	map.Restboard();
+	map.Resetboard();
 }
 void Game::HelpKey()
 {

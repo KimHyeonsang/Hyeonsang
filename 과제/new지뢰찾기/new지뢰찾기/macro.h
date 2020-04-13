@@ -8,6 +8,8 @@
 using namespace std;
 #define WIDTH 11
 #define HEIGHT 11
+#define PLAYER_X_MOVE 2
+#define PLAYER_Y_MOVE 1
 enum MAPSIZE
 {
 	MAPSIZE_WIDTH = WIDTH * 2,

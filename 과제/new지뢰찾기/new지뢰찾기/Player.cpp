@@ -124,7 +124,7 @@ void Player::beforecharaterdraw(Mapdraw* mapdraw, int x, int y)//이전에플레이어�
 {
 	if (m_bmovecharacterCheck == false)
 	{
-		m_bmovecheck = false;
+		m_bmovecheck = true;
 		return;
 	}
 	for (int i = 0; i < m_icount; i++)

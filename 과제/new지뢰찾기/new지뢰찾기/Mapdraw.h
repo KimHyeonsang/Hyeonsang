@@ -14,7 +14,7 @@ public:
 	void counttingBoom();
 	void openBox(int player_x, int player_y);
 	void beforelocation(int x, int y);
-	void Restboard();
+	void Resetboard();
 	void gotoxy(int x, int y)
 	{
 		COORD pos = { x,y };
