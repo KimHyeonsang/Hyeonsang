@@ -114,48 +114,48 @@ void Mapdraw::openBox(int player_x, int player_y)//캐릭터가 눌리면 무엇인지 확인
 	int playx = player_x /= 2;
 	if (m_imap[player_y][playx] == 0)
 	{
-		if (m_imap[player_y][playx + 1] >= 1 && m_imap[player_y][playx + 1] < 9)//오른쪽
+		if (m_imap[player_y][playx + 1] >= 0 && m_imap[player_y][playx + 1] < 9)//오른쪽
 		{
 			gotoxy((playx * 2) + PLAYER_X_MOVE, player_y);
 			cout << m_imap[player_y][playx + 1];
 		}
-		if (m_imap[player_y][playx - 1] >= 1 && m_imap[player_y][playx - 1] < 9)//왼쪽
+		if (m_imap[player_y][playx - 1] >= 0 && m_imap[player_y][playx - 1] < 9)//왼쪽
 		{
 			gotoxy((playx * 2) - PLAYER_X_MOVE, player_y);
 			cout << m_imap[player_y][playx - 1];
 		}
-		if (m_imap[player_y + 1][playx] >= 1 && m_imap[player_y + 1][playx] < 9)//아래
+		if (m_imap[player_y + 1][playx] >= 0 && m_imap[player_y + 1][playx] < 9)//아래
 		{
 			gotoxy(playx * 2, player_y + PLAYER_Y_MOVE);
 			cout << m_imap[player_y + 1][playx];
 		}
-		if (m_imap[player_y - 1][playx] >= 1 && m_imap[player_y - 1][playx] < 9)//위
+		if (m_imap[player_y - 1][playx] >= 0 && m_imap[player_y - 1][playx] < 9)//위
 		{
 			gotoxy(playx * 2, player_y - PLAYER_Y_MOVE);
 			cout << m_imap[player_y - 1][playx];
 		}
-		if (m_imap[player_y - 1][playx + 1] >= 1 && m_imap[player_y - 1][playx + 1] < 9)//오른쪽위
+		if (m_imap[player_y - 1][playx + 1] >= 0 && m_imap[player_y - 1][playx + 1] < 9)//오른쪽위
 		{
 			gotoxy((playx * 2) + PLAYER_X_MOVE, player_y - PLAYER_Y_MOVE);
 			cout << m_imap[player_y - 1][playx + 1];
 		}
-		if (m_imap[player_y + 1][playx - 1] >= 1 && m_imap[player_y + 1][playx - 1] < 9)//왼쪽아래
+		if (m_imap[player_y + 1][playx - 1] >= 0 && m_imap[player_y + 1][playx - 1] < 9)//왼쪽아래
 		{
 			gotoxy((playx * 2) - PLAYER_X_MOVE, player_y + PLAYER_Y_MOVE);
 			cout << m_imap[player_y + 1][playx - 1];
 		}
-		if (m_imap[player_y + 1][playx + 1] >= 1 && m_imap[player_y + 1][playx + 1] < 9)//왼쪽위
+		if (m_imap[player_y + 1][playx + 1] >= 0 && m_imap[player_y + 1][playx + 1] < 9)//왼쪽위
 		{
 			gotoxy((playx * 2) + PLAYER_X_MOVE, player_y + PLAYER_Y_MOVE);
 			cout << m_imap[player_y + 1][playx + 1];
 		}
-		if (m_imap[player_y - 1][playx - 1] >= 1 && m_imap[player_y - 1][playx - 1] < 9)//오른쪽아래
+		if (m_imap[player_y - 1][playx - 1] >= 0 && m_imap[player_y - 1][playx - 1] < 9)//오른쪽아래
 		{
 			gotoxy((playx * 2) - PLAYER_X_MOVE, player_y - PLAYER_Y_MOVE);
 			cout << m_imap[player_y - 1][playx - 1];
 		}
 	}
-	if (m_imap[player_y][playx] > 0 && m_imap[player_y][playx] < 9)//다른 것이면 그리기
+	if (m_imap[player_y][playx] >= 0 && m_imap[player_y][playx] < 9)//다른 것이면 그리기
 	{
 		gotoxy((playx * 2), player_y);
 		cout << m_imap[player_y][playx];
@@ -163,6 +163,7 @@ void Mapdraw::openBox(int player_x, int player_y)//캐릭터가 눌리면 무엇인지 확인
 	if (m_imap[player_y][playx] == MAPPACKGE_BOOM)// 지뢰이면 
 		m_bGameOver = true;
 }
+
 void Mapdraw::Resetboard()
 {
 	for (int y = 0; y < WIDTH; y++)
