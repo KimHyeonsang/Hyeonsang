@@ -176,7 +176,7 @@ void Player::PlayerSet()//할당 해제후 재설정
 	shap = "◇";
 	m_bmovecharacterCheck = false;
 	m_bmovecheck = false;
-
+	m_bcountcheck = false;
 	playermove = new playerMove*[m_icount];
 	for (int i = 0; i < m_icount; i++)
 		playermove[i] = new playerMove;
