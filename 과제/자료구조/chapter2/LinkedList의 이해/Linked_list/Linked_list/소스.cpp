@@ -58,15 +58,15 @@ int main(void)
 	printf("\n\n");
 	printf("입력 받은 데이터의 전체 출력! (역순)\n");
 	Node *p, *q, *r; 
-	p = head; // p는 현재 가리키는 노드, q는 이전 노드
-	q = NULL; //
+	p = head; 
+	q = NULL;
 	r = NULL; 
 	while (p != NULL) 
 	{ 
-		r = q; // r은 q, q는 p를 차례로 따라간다. 
+		r = q;
 		q = p; 
-		p = p->next; // p를 미리 옮겨 놓자. 
-		q->next = r; // q의 링크 방향을 바꾼다. 
+		p = p->next;
+		q->next = r;
 	} 
 	head = q;
 	if (head == NULL)
@@ -108,6 +108,5 @@ int main(void)
 			free(delNode);    // 두 번째 이후의 노드 삭제
 		}
 	}
-
 	return 0;
 }
