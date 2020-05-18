@@ -47,6 +47,7 @@ int main(void)
 	}
 
 	// 전체 데이터 1회 출력 ///////
+	printf("전체 데이터 1회 출력\n");
 	if (LFirst(&list, &data))
 	{
 		printf("%d ", data);
