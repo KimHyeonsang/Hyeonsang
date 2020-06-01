@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include<Windows.h>
 #include "Deque.h"
 
 int main(void)
@@ -35,5 +36,6 @@ int main(void)
 	while (!DQIsEmpty(&deq))
 		printf("%d ", DQRemoveLast(&deq));
 
+	system("pause");
 	return 0;
 }
