@@ -1,2 +1,0 @@
-C:\Users\A-12\Desktop\TreeTraverse\Debug\TreeTraverse.exe
-C:\Users\A-12\Desktop\TreeTraverse\Debug\TreeTraverse.pdb
