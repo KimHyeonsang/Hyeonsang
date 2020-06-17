@@ -22,7 +22,6 @@ int DataPriorityComp(const char* ch1,const char *ch2)
 int main(void)
 {
 	PQueue pq;
-	char Ccrr[CHAR_LEN];
 	PQueueInit(&pq, DataPriorityComp);
 	PEnqueue(&pq, "apple");
 	PEnqueue(&pq, "banana");
