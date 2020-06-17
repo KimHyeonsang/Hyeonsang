@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "PriorityQueue.h"
-
+#include<iostream>
 int DataPriorityComp(char ch1, char ch2)
 {
 	return ch2 - ch1;
@@ -23,6 +23,6 @@ int main(void)
 
 	while (!PQIsEmpty(&pq))
 		printf("%c \n", PDequeue(&pq));
-
+	system("pause");
 	return 0;
 }
