@@ -13,12 +13,16 @@ typedef struct _table
 	HashFunc* hf;
 }Table;
 
+//테이블의 초기화
 void TBLInit(Table* pt, HashFunc* f);
 
+//테이블에 키와 값을 저장
 void TBLInsert(Table* pt, Key k, Value v);
 
-void TBLDelete(Table* pt, Key k);
+//키를 근거로 테이블에서 테이터 삭제
+Value TBLDelete(Table* pt, Key k);
 
-void TBLSearch(Table* pt, Key k);
+//키를 근거로 테이블에서 데이터 탐색
+Value TBLSearch(Table* pt, Key k);
 
 #endif

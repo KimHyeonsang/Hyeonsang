@@ -12,9 +12,9 @@ int main(void)
 	HInsert(&heap, 'C', 3);
 	printf("%c \n", HDelete(&heap));
 
-	HInsert(&heap, 'A', 1);
-	HInsert(&heap, 'B', 2);
-	HInsert(&heap, 'C', 3);
+	HInsert(&heap, 'A', 5);
+	HInsert(&heap, 'B', 4);
+	HInsert(&heap, 'C', 6);
 	printf("%c \n", HDelete(&heap));
 
 	while (!HIsEmpty(&heap))
