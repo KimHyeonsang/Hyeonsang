@@ -569,7 +569,7 @@ using namespace std;
 //	(*p2).Print(); //p1.operator*().Print() 호출
 //
 //	delete p1;
-//	//p2의 소멸자에서 Point 동적 객체를 자동 메모리 제거합니다.
+//	p2의 소멸자에서 Point 동적 객체를 자동 메모리 제거합니다.
 //}
 
 //Exam_19
@@ -621,7 +621,7 @@ using namespace std;
 //	int x;
 //	int y;
 //public:
-//	explicit Point(int _x = 0, int _y = 0) :x(_x), y(_y) { }
+//	explicit Point(int _x = 0, int _y = 0) :x(_x), y(_y) { } //explicit 이걸쓰면 형변환 하는걸 막을수있다
 //	void Print() const { cout << x << ',' << y << endl; }
 //};
 //
