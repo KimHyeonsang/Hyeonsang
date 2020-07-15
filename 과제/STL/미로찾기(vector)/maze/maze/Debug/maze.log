@@ -1,0 +1,4 @@
+﻿  maze.cpp
+c:\users\a11\source\repos\maze\maze\maze.cpp(80): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+c:\users\a11\source\repos\maze\maze\maze.cpp(86): warning C4101: 'end' :참조되지 않은 지역 변수입니다.
+  maze.vcxproj -> C:\Users\A11\source\repos\maze\Debug\maze.exe
