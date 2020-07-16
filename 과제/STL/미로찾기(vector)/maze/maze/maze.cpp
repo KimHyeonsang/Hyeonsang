@@ -24,14 +24,20 @@ using namespace std;
 ///////////////////////////////////////////////////////////
 #define HEIGHT 5
 #define WIDTH 5
+
+
 enum Map
 {
-	player = 1,
-	TRAP,
+	PLAYER = 1,
+	ITEM_MAX,
 	TRAP_NUMBER,
 	TRAP2,
-	WALL,
-	WALL2
+	WALL = 6,
+	WALL2,
+	TRAP = 40,
+	DOOR =50,
+	ENTRY_START = 60,
+	EXIT = 70
 };
 
 void MapDraw(vector<vector<int>> map)
@@ -41,67 +47,92 @@ void MapDraw(vector<vector<int>> map)
 		for (int x = 0; x < WIDTH; x++)
 		{
 			if (map[y][x] == WALL)
-				printf("■");
+				cout<<"■";
 			else if (map[y][x] == WALL2)
-				printf("■");
+				cout << "■";
 			else if (map[y][x] == NULL)
-				printf("  ");
+				cout << "  ";
 			else if (map[y][x] >= TRAP && map[y][x] <= TRAP + TRAP_NUMBER)
-				printf("  ");
+				cout << "  ";
 			else if (map[y][x] >= TRAP2 && map[y][x] <= TRAP2 + TRAP_NUMBER)
-				printf("  ");
+				cout << "  ";
+			else if (map[y][x] == PLAYER)
+			{
+				RED
+					cout << "♬";
+				ORIGINAL
+			}
+			else if (map[y][x] == EXIT)
+			{
+				YELLOW
+					printf("△");
+				ORIGINAL
+			}
+			else if (map[y][x] == DOOR)
+			{
+				GOLD
+					printf("■");
+				ORIGINAL
+			}
+			else if (map[y][x] == ENTRY_START)
+			{
+				BLUE
+					printf("◎");
+				ORIGINAL
+			}
 		}
-		printf("\n");
+		cout << endl;
 	}
-	printf("출구:");
+	cout << "출구 : ";
 	YELLOW
-		printf("△");
+		cout << "△";
 	ORIGINAL
-		printf("입구");
+		cout << "입구";
 	BLUE
-		printf("◎\n");
+		cout << "◎\n";
 	ORIGINAL
-		printf("아이템");
+		cout << "아이템";
 	GOLD
-		printf("★");
+		cout << "★";
 	ORIGINAL
-		printf("문:");
+		cout << "문:";
 	GOLD
-		printf("■");
+		cout << "■";
 	ORIGINAL
-		printf("   함정 조심!!!!");
-	GREEN
-		printf("   ♨");
-	ORIGINAL
-		printf("아이템 갯수:%d", 0);
 
 }
-
-void main()
+void Map(vector<vector<int>> map)
 {
-	/*vector<int> arr(5, 0);
-	vector<int> arr2(5, 0);
-	vector<int> arr3(5, 0);
-	vector<int> arr4(5, 0);
-	vector<int> arr5(5, 0);*/
-	vector<vector<int> > arr(5, vector<int>(5, 0));
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < HEIGHT; i++)
 	{
-		if (i == 0 || i == 4)
+		if (i == 0 || i == HEIGHT - 1)
 		{
-			for (int j = 0; j < 5; j++)
+			for (int j = 0; j < WIDTH; j++)
 			{
-				arr[i][j] = WALL;
+				map[i][j] = WALL;
 			}
 		}
 		else
 		{
-			for (int j = 0; j < 5; j++)
+			for (int j = 0; j < WIDTH; j++)
 			{
-				if (j == 0 || j == 4)
-					arr[i][j] = WALL;
+				if (j == 0 || j == WIDTH - 1)
+					map[i][j] = WALL;
 			}
 		}
 	}
-	MapDraw(arr);
+	map[1][1] = PLAYER;
+	map[2][2] = WALL;
+	map[3][2] = WALL;
+	map[3][1] = ENTRY_START;
+	map[1][2] = DOOR;
+	map[1][3] = EXIT;
+	MapDraw(map);
+}
+
+
+void main()
+{
+	vector<vector<int> > arr(HEIGHT, vector<int>(WIDTH, 0));
+	Map(arr);
 }
