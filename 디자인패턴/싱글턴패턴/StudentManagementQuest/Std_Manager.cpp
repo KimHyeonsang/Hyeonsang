@@ -1,5 +1,4 @@
 #include "Std_Manager.h"
-
 Std_manager::Std_manager()
 {
 	for (int i = 0; i < 30; i++)

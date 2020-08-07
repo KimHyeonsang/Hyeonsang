@@ -1,0 +1,7 @@
+﻿  Int.cpp
+  IntManager.cpp
+c:\users\a11\desktop\찌르레기\hyeonsang\디자인패턴\싱글턴패턴\singleton\intmanager.cpp(3): warning C4356: 'Singleton<IntManager>::m_pThis': 정적 데이터 멤버는 파생 클래스를 통해 초기화할 수 없습니다.
+  main.cpp
+c:\users\a11\desktop\찌르레기\hyeonsang\디자인패턴\싱글턴패턴\singleton\main.cpp(5): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+  코드를 생성하고 있습니다...
+  Singleton.vcxproj -> C:\Users\A11\Desktop\찌르레기\Hyeonsang\디자인패턴\싱글턴패턴\Singleton\Debug\Singleton.exe
