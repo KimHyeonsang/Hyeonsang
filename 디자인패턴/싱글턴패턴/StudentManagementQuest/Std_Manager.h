@@ -1,6 +1,5 @@
 #pragma once
 #include "Student.h"
-
 class Std_manager 
 {
 	Student* std[30];

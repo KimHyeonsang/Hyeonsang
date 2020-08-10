@@ -1,0 +1,26 @@
+﻿  Vector.cpp
+c:\users\a11\desktop\찌르레기\hyeonsang\stl\code\예제코드\chapter_1\vector\vector.cpp(488): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\vector(506): fatal error C1088: 컴파일러 중간 파일 파일을 플러시할 수 없습니다. 'C:\Users\A11\AppData\Local\Temp\_CL_32b535e1sy': No space left on device
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\vector(501): note: 클래스 템플릿 멤버 함수 'void std::_Vector_alloc<std::_Vec_base_types<_Ty,_Alloc>>::_Alloc_proxy(void)'을(를) 컴파일하고 있습니다.
+          with
+          [
+              _Ty=int,
+              _Alloc=std::allocator<int>
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\vector(447): note: 컴파일 중인 함수 템플릿 인스턴스화 'void std::_Vector_alloc<std::_Vec_base_types<_Ty,_Alloc>>::_Alloc_proxy(void)'에 대한 참조를 확인하십시오.
+          with
+          [
+              _Ty=int,
+              _Alloc=std::allocator<int>
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\vector(626): note: 컴파일 중인 클래스 템플릿 인스턴스화 'std::_Vector_alloc<std::_Vec_base_types<_Ty,_Alloc>>'에 대한 참조를 확인하세요.
+          with
+          [
+              _Ty=int,
+              _Alloc=std::allocator<int>
+          ]
+  c:\users\a11\desktop\찌르레기\hyeonsang\stl\code\예제코드\chapter_1\vector\vector.cpp(489): note: 컴파일 중인 클래스 템플릿 인스턴스화 'std::vector<int,std::allocator<_Ty>>'에 대한 참조를 확인하세요.
+          with
+          [
+              _Ty=int
+          ]

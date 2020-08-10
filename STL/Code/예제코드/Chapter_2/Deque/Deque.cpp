@@ -56,51 +56,51 @@ using namespace std;
 //}
 
 //Exam_4
-//void main()
-//{
-//	deque<int> dq;
-//
-//	dq.push_back(10);
-//	dq.push_back(20);
-//	dq.push_back(30);
-//	dq.push_back(40);
-//	dq.push_back(50);
-//
-//	deque<int>::iterator iter;
-//	for (iter = dq.begin(); iter != dq.end(); ++iter)
-//		cout << *iter << " ";
-//	cout << endl;
-//
-//	iter = dq.begin() + 2; //반복자에 +2합니다.
-//	cout << *iter << endl;
-//
-//	iter += 2; //반복자에 +2합니다.
-//	cout << *iter << endl;
-//
-//	iter -= 3; //반복자에 -3합니다.
-//	cout << *iter << endl;
-//}
-
-//Exam_5
 void main()
 {
 	deque<int> dq;
 
-	for (int i = 0; i < 10; i++)
-		dq.push_back((i + 1) * 10);
+	dq.push_back(10);
+	dq.push_back(20);
+	dq.push_back(30);
+	dq.push_back(40);
+	dq.push_back(50);
 
 	deque<int>::iterator iter;
-	deque<int>::iterator iter2;
 	for (iter = dq.begin(); iter != dq.end(); ++iter)
-		cout << *iter << ' ';
+		cout << *iter << " ";
 	cout << endl;
 
+	iter = dq.begin() + 2; //반복자에 +2합니다.
+	cout << *iter << endl;
 
-	iter = dq.begin() + 2;
-	iter2 = dq.insert(iter, 500);
-	cout << *iter2 << endl;
+	iter += 2; //반복자에 +2합니다.
+	cout << *iter << endl;
 
-	for (iter = dq.begin(); iter != dq.end(); ++iter)
-		cout << *iter << ' ';
-	cout << endl;
+	iter -= 3; //반복자에 -3합니다.
+	cout << *iter << endl;
 }
+
+//Exam_5
+//void main()
+//{
+//	deque<int> dq;
+//
+//	for (int i = 0; i < 10; i++)
+//		dq.push_back((i + 1) * 10);
+//
+//	deque<int>::iterator iter;
+//	deque<int>::iterator iter2;
+//	for (iter = dq.begin(); iter != dq.end(); ++iter)
+//		cout << *iter << ' ';
+//	cout << endl;
+//
+//
+//	iter = dq.begin() + 2;
+//	iter2 = dq.insert(iter, 500);
+//	cout << *iter2 << endl;
+//
+//	for (iter = dq.begin(); iter != dq.end(); ++iter)
+//		cout << *iter << ' ';
+//	cout << endl;
+//}

@@ -1,0 +1,4 @@
+﻿  WardManager.cpp
+c:\users\a11\desktop\찌르레기\베네치아\베네치아\interface.h(21): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+c:\users\a11\desktop\찌르레기\베네치아\베네치아\wardmanager.cpp(103): warning C4715: 'WardManager::lifeless': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  베네치아.vcxproj -> C:\Users\A11\Desktop\찌르레기\베네치아\Debug\베네치아.exe

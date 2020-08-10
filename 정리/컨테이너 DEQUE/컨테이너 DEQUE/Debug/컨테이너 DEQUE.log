@@ -1,0 +1,12 @@
+﻿  DequeMain.cpp
+c:\users\a11\source\repos\컨테이너 deque\컨테이너 deque\dequemain.cpp(6): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+c:\users\a11\source\repos\컨테이너 deque\컨테이너 deque\dequemain.cpp(9): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\a11\source\repos\컨테이너 deque\컨테이너 deque\dequemain.cpp(16): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\a11\source\repos\컨테이너 deque\컨테이너 deque\dequemain.cpp(24): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\a11\source\repos\컨테이너 deque\컨테이너 deque\dequemain.cpp(32): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\a11\source\repos\컨테이너 deque\컨테이너 deque\dequemain.cpp(45): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\a11\source\repos\컨테이너 deque\컨테이너 deque\dequemain.cpp(53): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\a11\source\repos\컨테이너 deque\컨테이너 deque\dequemain.cpp(76): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\a11\source\repos\컨테이너 deque\컨테이너 deque\dequemain.cpp(84): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\a11\source\repos\컨테이너 deque\컨테이너 deque\dequemain.cpp(95): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  컨테이너 DEQUE.vcxproj -> C:\Users\A11\source\repos\컨테이너 DEQUE\Debug\컨테이너 DEQUE.exe

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "UsefulHeap.h"
-
+#include<iostream>
 int DataPriorityComp(char ch1, char ch2)
 {
 	return ch2 - ch1;
@@ -24,6 +24,6 @@ int main(void)
 
 	while (!HIsEmpty(&heap))
 		printf("%c \n", HDelete(&heap));
-
+	system("pause");
 	return 0;
 }

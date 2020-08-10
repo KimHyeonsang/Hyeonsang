@@ -6,7 +6,7 @@ using namespace std;
 //{
 //	cout << "전역 함수!" << endl;
 //}
-
+//
 //class Functor
 //{
 //public:
@@ -15,7 +15,7 @@ using namespace std;
 //		cout << "함수 객체!" << endl;
 //	}
 //};
-
+//
 //void main()
 //{
 //	Functor functor;
@@ -48,7 +48,7 @@ using namespace std;
 //}
 
 //Exam_3
-//#include <algorithm> // fo_each() 알고리즘(서버)을 사용하기 위한 헤더
+//#include <algorithm> // for_each() 알고리즘(서버)을 사용하기 위한 헤더
 //
 //struct Functor1
 //{
@@ -148,35 +148,35 @@ using namespace std;
 //}
 
 //Exam_6
-#include <functional> //plus<>, minus<>
-
-class Plus
-{
-public:
-	int operator()(int a, int b)
-	{
-		return a + b;
-	}
-};
-
-class Minus
-{
-public:
-	int operator()(int a, int b)
-	{
-		return a - b;
-	}
-};
-
-void main()
-{
-	cout << Plus()(10, 20) << endl; //사용자 Plus, Minus 사용
-	cout << Plus()(20, 10) << endl;
-	cout << Minus()(10, 20) << endl;
-	cout << Minus()(20, 10) << endl;
-	cout << endl;
-	cout << plus<int>()(10, 20) << endl; //STL의 plus, minus 사용
-	cout << plus<int>()(20, 10) << endl;
-	cout << minus<int>()(10, 20) << endl;
-	cout << minus<int>()(20, 10) << endl;
-}
+//#include <functional> //plus<>, minus<>
+//
+//class Plus
+//{
+//public:
+//	int operator()(int a, int b)
+//	{
+//		return a + b;
+//	}
+//};
+//
+//class Minus
+//{
+//public:
+//	int operator()(int a, int b)
+//	{
+//		return a - b;
+//	}
+//};
+//
+//void main()
+//{
+//	cout << Plus()(10, 20) << endl; //사용자 Plus, Minus 사용
+//	cout << Plus()(20, 10) << endl;
+//	cout << Minus()(10, 20) << endl;
+//	cout << Minus()(20, 10) << endl;
+//	cout << endl;
+//	cout << plus<int>()(10, 20) << endl; //STL의 plus, minus 사용
+//	cout << plus<int>()(20, 10) << endl;
+//	cout << minus<int>()(10, 20) << endl;
+//	cout << minus<int>()(20, 10) << endl;
+//}
