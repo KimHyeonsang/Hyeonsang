@@ -1,0 +1,3 @@
+﻿  BinaryTreeTraverseMain.cpp
+c:\users\asakq\source\repos\treetraverse\treetraverse\binarytreetraversemain.cpp(60): warning C4101: 'deletenode' :참조되지 않은 지역 변수입니다.
+  TreeTraverse.vcxproj -> C:\Users\asakq\source\repos\TreeTraverse\Debug\TreeTraverse.exe
