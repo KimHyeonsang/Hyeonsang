@@ -1,0 +1,72 @@
+﻿  GameManager.cpp
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\interface.h(21): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(25): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(27): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(34): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(43): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(45): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(54): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(80): warning C4805: '==': 연산에 'char' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(94): warning C4805: '==': 연산에 'char' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(96): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(105): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(53): warning C4101: 'endtime' :참조되지 않은 지역 변수입니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(134): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(135): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(141): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _kbhit. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(459): note: 'kbhit' 선언을 참조하십시오.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(143): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note: 'getch' 선언을 참조하십시오.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(159): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(161): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(162): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(163): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(217): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(218): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(232): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(241): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(253): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(273): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(219): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _kbhit. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(459): note: 'kbhit' 선언을 참조하십시오.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(221): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note: 'getch' 선언을 참조하십시오.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(288): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(293): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Interface.cpp
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\interface.h(21): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\interface.cpp(25): warning C4267: '-=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\interface.cpp(83): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note: 'getch' 선언을 참조하십시오.
+  main.cpp
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\interface.h(21): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\main.cpp(25): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\main.cpp(26): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\main.cpp(27): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\main.cpp(28): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\main.cpp(30): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\main.cpp(17): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
+  Rank.cpp
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\interface.h(21): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\rank.cpp(71): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\rank.cpp(72): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\rank.cpp(73): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\rank.cpp(74): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\rank.cpp(75): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\rank.cpp(76): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\rank.cpp(77): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\rank.cpp(85): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\rank.cpp(89): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\rank.cpp(92): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note: 'getch' 선언을 참조하십시오.
+  Ward.cpp
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\interface.h(21): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\ward.cpp(38): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  WardManager.cpp
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\interface.h(21): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+  코드를 생성하고 있습니다...
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\wardmanager.cpp(103): warning C4715: 'WardManager::lifeless': 모든 제어 경로에서 값을 반환하지는 않습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\ward.cpp(118): warning C4715: 'Ward::lifeless': 모든 제어 경로에서 값을 반환하지는 않습니다.
+c:\users\a11\desktop\베네치아(list 추가 단어저장,랭킹 변경)\베네치아\gamemanager.cpp(151): warning C4715: 'GameManager::Skip': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  베네치아.vcxproj -> C:\Users\A11\Desktop\베네치아(list 추가 단어저장,랭킹 변경)\x64\Debug\베네치아.exe
