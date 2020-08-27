@@ -32,12 +32,22 @@ void GameManager::SelectJob()
 	map.DrawMidText("3. 마법사(완드) ", WIDTH, y + line++ * 3);
 	map.DrawMidText("4. 궁수(활,총)  ", WIDTH, y + line++ * 3);
 	Select = map.MenuSelectCursor(4, 3, WIDTH * 0.25f, HEIGHT * 0.3f);
-	player->JobSelect(Select);
+	if (Select == 1)
+	{
+		 knightFactory = new KnightCharacter();
+		 knight = knightFactory->CreateJobClass();
+		 sword = knightFactory->CreateWeapon();
+		 knight->SetWeapon(sword);
+	}
+	else if (Select == 2)
+	{
+
+	}
 }
 void GameManager::NewGame()
 {
 	system("cls");
-	player = new Player;
+//player = new Player;
 	int y = HEIGHT * 0.14f;
 	BLUE
 		map.BoxDraw(0, 0, WIDTH, HEIGHT);
@@ -49,7 +59,8 @@ void GameManager::NewGame()
 			map.TextDraw("Player 이름 입력 : ", WIDTH*0.65f, HEIGHT*0.5f);
 		cin >> name;
 		ORIGINAL
-			player->SetName(name);
+		//	player->SetName(name);
+		knight->SetName(name);
 	}
 	while (1)
 	{
@@ -67,7 +78,9 @@ void GameManager::NewGame()
 		case 2:
 			system("cls");
 			YELLOW
-				player->showplayer(WIDTH*0.5f, HEIGHT*0.4f);
+				//	player->showplayer(WIDTH*0.5f, HEIGHT*0.4f);
+				knight->showplayer(WIDTH*0.5f, HEIGHT*0.4f);
+			sword->ShowInfo(WIDTH*0.5f, HEIGHT*0.6f);
 			ORIGINAL
 				system("pause>null");
 			break;
@@ -84,7 +97,7 @@ void GameManager::NewGame()
 			weaponShop();
 			break;
 		case 5:
-			player->invenview(WIDTH, HEIGHT * 0.1f);
+	//		player->invenview(WIDTH, HEIGHT * 0.1f);
 			break;
 		case 6:
 			bSave = true;
@@ -192,8 +205,8 @@ void GameManager::Load(char* buf, int Select, char *buf2)
 	{
 		Ms.Reset();
 		Ms.LoadMonster(buf);
-		player->Reset();
-		player->LoadPlayer(buf2);
+	//	player->Reset();
+	//	player->LoadPlayer(buf2);
 	}
 }
 void GameManager::Save(char* buf, int Select, char* buf2)
@@ -203,7 +216,7 @@ void GameManager::Save(char* buf, int Select, char* buf2)
 	sprintf(buf, "SaveMonster%d.txt", Select);
 	sprintf(buf2, "SavePlayer%d.txt", Select);
 	Ms.Save(buf);
-	player->Save(buf2, shop.WeaponNumber());
+//	player->Save(buf2, shop.WeaponNumber());
 	bLoad = false;
 }
 void GameManager::Dangan()
@@ -252,12 +265,12 @@ void GameManager::monsterbatte(int Select)
 			map.BoxDraw(0, 0, WIDTH, HEIGHT);
 		ORIGINAL
 			YELLOW
-			player->showplayer(WIDTH*0.5f, HEIGHT*0.14f);
+	//		player->showplayer(WIDTH*0.5f, HEIGHT*0.14f);
 		map.TextDraw("가위 : 1  바위 : 2  보 : 3", WIDTH*0.56f, HEIGHT*0.35f);
 		if (bRamdomeffect == true)
 		{
 			map.gotoxy(WIDTH*0.08f, HEIGHT*0.45f);
-			player->showeffect();
+	//		player->showeffect();
 		}
 		if (Playerkey == 1)
 			map.TextDraw("가위", WIDTH, HEIGHT*0.4f);
@@ -331,10 +344,10 @@ void GameManager::Rock_Paper_Scissors(int Playerkey, int Monsterrandom, int Sele
 		bDraw = false;
 		if (bweaponUse == true)//무기를 장착하면
 		{
-			Ms.Damage(player->weaponeffect(bRamdomeffect), Select);//효과확률
+	//		Ms.Damage(player->weaponeffect(bRamdomeffect), Select);//효과확률
 		}
 		else
-			Ms.Damage(player->power(), Select);//일반 공격 무기있으면 무기랑 합한 데미지
+	//		Ms.Damage(player->power(), Select);//일반 공격 무기있으면 무기랑 합한 데미지
 
 		if (Ms.Current_health(Select) <= 0)
 		{
@@ -343,7 +356,7 @@ void GameManager::Rock_Paper_Scissors(int Playerkey, int Monsterrandom, int Sele
 			BLUE
 				map.BoxDraw(0, 0, WIDTH, HEIGHT);
 			ORIGINAL
-				player->Victory(WIDTH*0.5f, HEIGHT*0.4f, Ms.Earned_Experience(Select), Ms.money(Select));
+	//			player->Victory(WIDTH*0.5f, HEIGHT*0.4f, Ms.Earned_Experience(Select), Ms.money(Select));
 			Ms.RegetHp(Select);
 			batte = false;
 		}
@@ -355,18 +368,18 @@ void GameManager::Rock_Paper_Scissors(int Playerkey, int Monsterrandom, int Sele
 		bDraw = false;
 		bPlayerwin = false;
 		bPlayerLose = true;
-		player->Damage(Ms.power(Select));
+	//	player->Damage(Ms.power(Select));
 		system("cls");
 		BLUE
 			map.BoxDraw(0, 0, WIDTH, HEIGHT);
 		ORIGINAL
-			if (player->Current_health() <= 0)
+			/*if (player->Current_health() <= 0)
 			{
 				Ms.Victory(WIDTH*0.5f, HEIGHT*0.4f, player->Earned_Experience(), Select);
 				player->ResetHp();
 				batte = false;
 				batteselect = false;
-			}
+			}*/
 	}
 }
 void GameManager::weaponShop()
@@ -395,8 +408,8 @@ void GameManager::weaponShop()
 		case WEAPON_BOW:
 		case WEAPON_HAMMER:
 			if (bweaponUse == true)
-				player->finalweapon();
-			shop.showweaponNemnnu(bweaponUse, (WEAPON)Select, player);
+	//			player->finalweapon();
+	//		shop.showweaponNemnnu(bweaponUse, (WEAPON)Select, player);
 			break;
 		case WEAPON_END:
 			return;
@@ -406,7 +419,7 @@ void GameManager::weaponShop()
 
 GameManager::~GameManager()
 {
-	delete player;
-	if (player != NULL)
-		player = NULL;
+//	delete player;
+//	if (player != NULL)
+//		player = NULL;
 }

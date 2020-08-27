@@ -4,6 +4,7 @@
 #include"Monster.h"
 #include"Player.h"
 #include"WeaponShop.h"
+#include"PlayerFactory.h"
 #define ROCK 2
 #define SCISSORS 1
 #define PAPER 3
@@ -15,7 +16,7 @@ private:
 	static GameManager* m_hThis;
 	MapDraw map;
 	Monster Ms;
-	Player* player;
+//	Player* player;
 	WeaponShop shop;
 	bool bLoad;
 	bool bSave;
@@ -28,6 +29,21 @@ private:
 	bool bRamdomeffect;
 	bool bweaponUse;
 	bool bWeaponchange;
+
+	KnightCharacter* knightFactory;
+	ArcherCharacter* archerFactory;
+	WizardCharacter* wizardFactory;
+	AssassinCharacter* assassinFactory;
+
+	Player* knight;
+	Player* archer;
+	Player* wizard;
+	Player* assassin;
+
+	Weapon* sword;
+	Weapon* bow;
+	Weapon* staff;
+	Weapon* dagger;
 public:
 	static GameManager* GetInstance()
 	{

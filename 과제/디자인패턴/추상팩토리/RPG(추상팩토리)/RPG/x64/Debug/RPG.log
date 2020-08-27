@@ -1,6 +1,6 @@
 ﻿  Player.cpp
-c:\users\a-12\desktop\rpg(컴포넌트패턴으로 인벤토리추가)\rpg\mapdraw.h(19): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
-c:\users\a-12\desktop\rpg(컴포넌트패턴으로 인벤토리추가)\rpg\player.cpp(81): warning C4101: 'monstercount' :참조되지 않은 지역 변수입니다.
-c:\users\a-12\desktop\rpg(컴포넌트패턴으로 인벤토리추가)\rpg\player.cpp(166): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a-12\desktop\rpg(컴포넌트패턴으로 인벤토리추가)\rpg\player.cpp(169): warning C4244: '*=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  RPG.vcxproj -> C:\Users\A-12\Desktop\RPG(컴포넌트패턴으로 인벤토리추가)\x64\Debug\RPG.exe
+c:\users\a09\desktop\rpg(추상팩토리)\rpg\mapdraw.h(19): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+c:\users\a09\desktop\rpg(추상팩토리)\rpg\player.cpp(85): warning C4101: 'monstercount' :참조되지 않은 지역 변수입니다.
+c:\users\a09\desktop\rpg(추상팩토리)\rpg\player.cpp(170): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a09\desktop\rpg(추상팩토리)\rpg\player.cpp(173): warning C4244: '*=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  RPG.vcxproj -> C:\Users\A09\Desktop\RPG(추상팩토리)\x64\Debug\RPG.exe

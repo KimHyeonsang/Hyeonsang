@@ -61,7 +61,7 @@ void Player::showplayer(int x, int y)
 	cout << "Gold = " << info->Gold;
 	y++;
 	x -= 10;
-	m_pweapon->ShowInfo(x, y);
+//	knight->showweapon(x, y);
 	/*if (bWeaponusing == true)
 	{
 		map.gotoxy(x, y);
@@ -70,6 +70,10 @@ void Player::showplayer(int x, int y)
 
 	}*/
 	cout << endl;
+}
+void Player::showweapon(int x, int y)
+{
+	m_pweapon->ShowInfo(x, y);
 }
 void Player::SetWeapon(Weapon* _weapon)
 {
@@ -263,26 +267,25 @@ void Player::JobSelect(int select)
 {
 	if (select == 1)
 	{
-		Player* knight = new Knight();
+		knight = new Knight();
 		Weapon* sword = new Sword("³ì½¼°Ë",5,0);
-	//	knight->SetWeapon(sword);//ÀÌ°Ô ÇÃ·¹ÀÌ¾î°¡ ¾Æ´Ñ ³ªÀÌÆ®ÂÊ¿¡ ÀúÀåµÇ¾î¼­
-		m_pweapon = sword;
+		knight->SetWeapon(sword);//ÀÌ°Ô ÇÃ·¹ÀÌ¾î°¡ ¾Æ´Ñ ³ªÀÌÆ®ÂÊ¿¡ ÀúÀåµÇ¾î¼­
 	}
 	else if (select == 2)
 	{
-		Player* assassin = new Assassin();
+		assassin = new Assassin();
 		Weapon* dagger = new Dagger("³ì½¼´Ü°Ë",5,0);
 		assassin->SetWeapon(dagger);
 	}
 	else if (select == 3)
 	{
-		Player* wizard = new Wizard();
+		wizard = new Wizard();
 		Weapon* wand = new Wand("³ì½¼ÁöÆÎÀÌ",5,0);
 		wizard->SetWeapon(wand);
 	}
 	else if (select == 4)
 	{
-		Player* archer = new Archer();
+		archer = new Archer();
 		Weapon* bow = new Bow("³ì½¼È°",5,0);
 		archer->SetWeapon(bow);
 	}
@@ -319,13 +322,12 @@ Weapon * Player::GetWeapon()
 bool Knight::EquipCheck()
 {
 	Sword* sword = dynamic_cast<Sword*>(GetWeapon());
-
 	if (sword == NULL)
 		return false;
 
 	cout << "°Ë Âø¿ë!" << endl;
 
-	return 0;
+	return sword->weaponAttack();
 }
 
 /* Archer */
@@ -338,7 +340,7 @@ bool Archer::EquipCheck()
 
 	cout << "È° Âø¿ë!" << endl;
 
-	return 0;
+	return bow->weaponAttack();
 }
 
 /* Wizard */
@@ -351,7 +353,7 @@ bool Wizard::EquipCheck()
 
 	cout << "ÁöÆÎÀÌ Âø¿ë!" << endl;
 
-	return 0;
+	return staff->weaponAttack();
 }
 
 /*Assassin */
@@ -364,5 +366,5 @@ bool Assassin::EquipCheck()
 
 	cout << "´ë°Å Âø¿ë!" << endl;
 
-	return 0;
+	return dagger->weaponAttack();
 }

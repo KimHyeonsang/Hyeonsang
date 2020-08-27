@@ -34,7 +34,12 @@ private:
 	Inventory* Swordbag;
 	Inventory* Hammerbag;
 	Inventory* Money;
+	Player* knight;
+	Player* assassin;
+	Player* wizard;
+	Player* archer;
 public:
+	virtual bool EquipCheck() = 0;
 	void showplayer(int x, int y);
 	void SetName(string str);
 	void LoadPlayer(char* buf);
@@ -50,6 +55,7 @@ public:
 	void invenview(int x,int y);
 	void SetWeapon(Weapon* _weapon);
 	void JobSelect(int select);
+	void showweapon(int x, int y);
 	inline string playername()
 	{
 		return info->name;
@@ -80,23 +86,23 @@ protected:
 class Knight : public Player
 {
 public:
-	bool EquipCheck();
+	virtual bool EquipCheck();
 };
 
 class Archer : public Player
 {
 public:
-	bool EquipCheck();
+	virtual bool EquipCheck();
 };
 
 class Wizard : public Player
 {
 public:
-	bool EquipCheck();
+	virtual bool EquipCheck();
 };
 
 class Assassin : public Player
 {
 public:
-	bool EquipCheck();
+	virtual bool EquipCheck();
 };
