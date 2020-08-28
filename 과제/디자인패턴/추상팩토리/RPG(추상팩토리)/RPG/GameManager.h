@@ -16,7 +16,6 @@ private:
 	static GameManager* m_hThis;
 	MapDraw map;
 	Monster Ms;
-//	Player* player;
 	WeaponShop shop;
 	bool bLoad;
 	bool bSave;
@@ -35,15 +34,9 @@ private:
 	WizardCharacter* wizardFactory;
 	AssassinCharacter* assassinFactory;
 
-	Player* knight;
-	Player* archer;
-	Player* wizard;
-	Player* assassin;
+	Player* player;
 
-	Weapon* sword;
-	Weapon* bow;
-	Weapon* staff;
-	Weapon* dagger;
+	Weapon* useweapon;
 public:
 	static GameManager* GetInstance()
 	{

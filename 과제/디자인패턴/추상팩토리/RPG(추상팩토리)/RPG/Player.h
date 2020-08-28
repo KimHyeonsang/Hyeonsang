@@ -3,6 +3,14 @@
 #include"MapDraw.h"
 #include"Weapon.h"
 #include"Inventory.h"
+
+enum PLAYERJOB
+{
+	PLAYERJOB_KNIGHT,
+	PLAYERJOB_ASSASSIN,
+	PLAYERJOB_WIZARD,
+	PLAYERJOB_ARCHER
+};
 typedef struct Player_Info
 {
 	string name;
@@ -54,8 +62,6 @@ public:
 	void finalweapon();
 	void invenview(int x,int y);
 	void SetWeapon(Weapon* _weapon);
-	void JobSelect(int select);
-	void showweapon(int x, int y);
 	inline string playername()
 	{
 		return info->name;
@@ -81,28 +87,33 @@ public:
 	~Player();
 protected:
 	Weapon* GetWeapon();
+	PLAYERJOB playerjob;
 };
 
 class Knight : public Player
 {
 public:
+	Knight();
 	virtual bool EquipCheck();
 };
 
 class Archer : public Player
 {
 public:
+	Archer();
 	virtual bool EquipCheck();
 };
 
 class Wizard : public Player
 {
 public:
+	Wizard();
 	virtual bool EquipCheck();
 };
 
 class Assassin : public Player
 {
 public:
+	Assassin();
 	virtual bool EquipCheck();
 };

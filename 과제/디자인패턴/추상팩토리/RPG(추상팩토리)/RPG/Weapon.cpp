@@ -60,15 +60,19 @@ Weapon::~Weapon()
 
 Bow::Bow()
 {
+	m_strName = "³ì½¼ È°";
+	m_iDamage = 5;
+	m_Type = WEAPON_BOW;
+	m_iprice = 0;
 
 }
-Bow::Bow(Bow* bow)
-{
-	m_strName = bow->m_strName;
-	m_iDamage = bow->m_iDamage;
-	m_iprice = bow->m_iprice;
-	m_Type = bow->m_Type;
-}
+//Bow::Bow(Bow* bow)
+//{
+//	m_strName = bow->m_strName;
+//	m_iDamage = bow->m_iDamage;
+//	m_iprice = bow->m_iprice;
+//	m_Type = bow->m_Type;
+//}
 
 Bow::Bow(string name, int Damage, int Gold)
 {
@@ -133,15 +137,18 @@ Bow::~Bow()
 }
 Dagger::Dagger()
 {
-
+	m_strName = "³ì½¼ ´Ü°Ë";
+	m_iDamage = 5;
+	m_Type = WEAPON_DAGGER;
+	m_iprice = 0;
 }
-Dagger::Dagger(Dagger* dagger)
-{
-	m_strName = dagger->m_strName;
-	m_iDamage = dagger->m_iDamage;
-	m_iprice = dagger->m_iprice;
-	m_Type = dagger->m_Type;
-}
+//Dagger::Dagger(Dagger* dagger)
+//{
+//	m_strName = dagger->m_strName;
+//	m_iDamage = dagger->m_iDamage;
+//	m_iprice = dagger->m_iprice;
+//	m_Type = dagger->m_Type;
+//}
 
 Dagger::Dagger(string Name, int Damage, int Gold)
 {
@@ -215,15 +222,18 @@ Dagger::~Dagger()
 
 Gun::Gun()
 {
-
+	m_strName = "³ì½¼ ÃÑ";
+	m_iDamage = 5;
+	m_Type = WEAPON_GUN;
+	m_iprice = 0;
 }
-Gun::Gun(Gun* gun)
-{
-	m_strName = gun->m_strName;
-	m_iDamage = gun->m_iDamage;
-	m_iprice = gun->m_iprice;
-	m_Type = gun->m_Type;
-}
+//Gun::Gun(Gun* gun)
+//{
+//	m_strName = gun->m_strName;
+//	m_iDamage = gun->m_iDamage;
+//	m_iprice = gun->m_iprice;
+//	m_Type = gun->m_Type;
+//}
 
 
 Gun::Gun(string Name, int Damage, int Gold)
@@ -283,15 +293,18 @@ Gun::~Gun()
 
 Hammer::Hammer()
 {
-
+	m_strName = "³ì½¼ ÇØ¸Ó";
+	m_iDamage = 3;
+	m_Type = WEAPON_HAMMER;
+	m_iprice = 0;
 }
-Hammer::Hammer(Hammer* hammer)
-{
-	m_strName = hammer->m_strName;
-	m_iDamage = hammer->m_iDamage;
-	m_iprice = hammer->m_iprice;
-	m_Type = hammer->m_Type;
-}
+//Hammer::Hammer(Hammer* hammer)
+//{
+//	m_strName = hammer->m_strName;
+//	m_iDamage = hammer->m_iDamage;
+//	m_iprice = hammer->m_iprice;
+//	m_Type = hammer->m_Type;
+//}
 
 Hammer::Hammer(string Name, int Damage, int Gold)
 {
@@ -356,13 +369,13 @@ Sword::Sword()
 	m_Type = WEAPON_SWORD;
 	m_iprice = 0;
 }
-Sword::Sword(Sword* sword)
-{
-	m_strName = sword->m_strName;
-	m_iDamage = sword->m_iDamage;
-	m_iprice = sword->m_iprice;
-	m_Type = sword->m_Type;
-}
+//Sword::Sword(Sword* sword)
+//{
+//	m_strName = sword->m_strName;
+//	m_iDamage = sword->m_iDamage;
+//	m_iprice = sword->m_iprice;
+//	m_Type = sword->m_Type;
+//}
 
 Sword::Sword(string Name, int Damage, int Gold)
 {
@@ -429,15 +442,18 @@ Sword::~Sword()
 
 Wand::Wand()
 {
-
+	m_strName = "³ì½¼ ÁöÆÎÀÌ";
+	m_iDamage = 3;
+	m_Type = WEAPON_WAND;
+	m_iprice = 0;
 }
-Wand::Wand(Wand* wand)
-{
-	m_strName = wand->m_strName;
-	m_iDamage = wand->m_iDamage;
-	m_iprice = wand->m_iprice;
-	m_Type = wand->m_Type;
-}
+//Wand::Wand(Wand* wand)
+//{
+//	m_strName = wand->m_strName;
+//	m_iDamage = wand->m_iDamage;
+//	m_iprice = wand->m_iprice;
+//	m_Type = wand->m_Type;
+//}
 
 Wand::Wand(string Name, int Damage, int Gold)
 {

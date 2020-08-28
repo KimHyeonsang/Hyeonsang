@@ -34,7 +34,7 @@ public:
 	virtual void ShowWeaponeffect();
 	Bow(int Damage, string Name, WEAPON type, int price) : Weapon(Damage, Name, type, price) {}
 	Bow(string name,int Damage,int Gold);
-	Bow(Bow* bow);
+//	Bow(Bow* bow);
 	Bow();
 	virtual ~Bow();
 };
@@ -46,7 +46,7 @@ public:
 	virtual void ShowWeaponeffect();
 	Dagger(int Damage, string Name, WEAPON type, int price) : Weapon(Damage, Name, type, price) {}
 	Dagger(string name, int Damage, int Gold);
-	Dagger(Dagger* dagger);
+//	Dagger(Dagger* dagger);
 	Dagger();
 	virtual ~Dagger();
 };
@@ -58,7 +58,7 @@ public:
 	virtual void ShowWeaponeffect();
 	Gun(int Damage, string Name, WEAPON type, int price) : Weapon(Damage, Name, type, price) {}
 	Gun(string name, int Damage, int Gold);
-	Gun(Gun* gun);
+//	Gun(Gun* gun);
 	Gun();
 	virtual ~Gun();
 };
@@ -75,7 +75,7 @@ public:
 	virtual void ShowWeaponeffect();
 	Hammer(int Damage, string Name, WEAPON type, int price) : Weapon(Damage, Name, type, price) {}
 	Hammer(string name, int Damage, int Gold);
-	Hammer(Hammer* hammer);
+//	Hammer(Hammer* hammer);
 	Hammer();
 	virtual ~Hammer();
 };
@@ -91,7 +91,7 @@ public:
 	virtual void ShowWeaponeffect();
 	Sword(int Damage, string Name, WEAPON type, int price) : Weapon(Damage, Name, type, price) {}
 	Sword(string name, int Damage, int Gold);
-	Sword(Sword* sword);
+//	Sword(Sword* sword);
 	Sword();
 	virtual ~Sword();
 };
@@ -107,7 +107,7 @@ public:
 	virtual void ShowWeaponeffect();
 	Wand(int Damage, string Name, WEAPON type, int price) : Weapon(Damage, Name, type, price) {}
 	Wand(string name, int Damage, int Gold);
-	Wand(Wand* sword);
+//	Wand(Wand* sword);
 	Wand();
 	virtual ~Wand();
 };

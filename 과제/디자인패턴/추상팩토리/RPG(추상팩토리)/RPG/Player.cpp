@@ -48,32 +48,27 @@ void Player::SetName(string str)
 }
 void Player::showplayer(int x, int y)
 {
-	map.gotoxy(x, y);
-	cout << "      =======" << info->name << "< " << info->Level << "Lv>=====";
-	y++;
-	map.gotoxy(x, y);
-	cout << "공격력 = " << info->power << "\t" << "생명력 = " << info->Current_health << " / " << info->Max_health;
-	y++;
-	map.gotoxy(x, y);
-	cout << "경험치 = " << info->Current_experience << " / " << info->Max_experience << "\t" << "GerExp = " << info->Earned_Experience;
-	y++;
-	map.gotoxy(x, y);
-	cout << "Gold = " << info->Gold;
-	y++;
-	x -= 10;
-//	knight->showweapon(x, y);
-	/*if (bWeaponusing == true)
+	int line = 0;
+	string jobname;
+	switch (playerjob)
 	{
-		map.gotoxy(x, y);
-		//cout << "무기타입 : " << m_pweapon->WeaponType() << " 무기이름 : " << m_pweapon->WeaponName() << " 공격력 : " << m_pweapon->weaponAttack();
-		m_pweapon->ShowInfo(x - 8, y + 4);
-
-	}*/
-	cout << endl;
-}
-void Player::showweapon(int x, int y)
-{
-	m_pweapon->ShowInfo(x, y);
+	case PLAYERJOB_KNIGHT:
+		jobname = "전사";
+		break;
+	case PLAYERJOB_ASSASSIN:
+		jobname = "도적";
+		break;
+	case PLAYERJOB_WIZARD:
+		jobname = "마법사";
+		break;
+	case PLAYERJOB_ARCHER:
+		jobname = "궁수";
+		break;
+	}
+	map.DrawMidText("=======  아이디 : "+ info->name + " 직업 :"+jobname +" < " + to_string(info->Level) + "Lv>=====",x,y + line++ * 2);
+	map.DrawMidText("공격력 = " + to_string(info->power) + "  생명력 = " + to_string(info->Current_health) + " / " + to_string(info->Max_health), x, y + line++ * 2);
+	map.DrawMidText("경험치 = " + to_string(info->Current_experience) + " / " + to_string(info->Max_experience) + "  GerExp = " + to_string(info->Earned_Experience), x, y + line++ * 2);
+	map.DrawMidText("Gold = " + to_string(info->Gold), x, y + line * 2);
 }
 void Player::SetWeapon(Weapon* _weapon)
 {
@@ -205,6 +200,7 @@ void Player::Buy(Weapon* weapon, WEAPON Type)//구매 하고 인벤토리 넣기
 	Inventory* item4;
 	Inventory* item5;
 	
+	SetWeapon(m_pweapon);
 	//어느 가방에 아이템을 넣어야하는지 조건을 달아야한다.
 	switch (Type)
 	{	
@@ -263,33 +259,6 @@ void  Player::showeffect()
 {
 	m_pweapon->ShowWeaponeffect();
 }
-void Player::JobSelect(int select)
-{
-	if (select == 1)
-	{
-		knight = new Knight();
-		Weapon* sword = new Sword("녹슨검",5,0);
-		knight->SetWeapon(sword);//이게 플레이어가 아닌 나이트쪽에 저장되어서
-	}
-	else if (select == 2)
-	{
-		assassin = new Assassin();
-		Weapon* dagger = new Dagger("녹슨단검",5,0);
-		assassin->SetWeapon(dagger);
-	}
-	else if (select == 3)
-	{
-		wizard = new Wizard();
-		Weapon* wand = new Wand("녹슨지팡이",5,0);
-		wizard->SetWeapon(wand);
-	}
-	else if (select == 4)
-	{
-		archer = new Archer();
-		Weapon* bow = new Bow("녹슨활",5,0);
-		archer->SetWeapon(bow);
-	}
-}
 
 void Player::finalweapon()
 {
@@ -319,6 +288,12 @@ Weapon * Player::GetWeapon()
 }
 
 /* Knight */
+
+Knight::Knight()
+{
+	playerjob = PLAYERJOB_KNIGHT;
+}
+
 bool Knight::EquipCheck()
 {
 	Sword* sword = dynamic_cast<Sword*>(GetWeapon());
@@ -331,6 +306,11 @@ bool Knight::EquipCheck()
 }
 
 /* Archer */
+Archer::Archer()
+{
+	playerjob = PLAYERJOB_ARCHER;
+}
+
 bool Archer::EquipCheck()
 {
 	Bow* bow = dynamic_cast<Bow*>(GetWeapon());
@@ -344,6 +324,11 @@ bool Archer::EquipCheck()
 }
 
 /* Wizard */
+Wizard::Wizard()
+{
+	playerjob = PLAYERJOB_WIZARD;
+}
+
 bool Wizard::EquipCheck()
 {
 	Wand* staff = dynamic_cast<Wand*>(GetWeapon());
@@ -357,6 +342,11 @@ bool Wizard::EquipCheck()
 }
 
 /*Assassin */
+Assassin::Assassin()
+{
+	playerjob = PLAYERJOB_ASSASSIN;
+}
+
 bool Assassin::EquipCheck()
 {
 	Dagger* dagger = dynamic_cast<Dagger*>(GetWeapon());
