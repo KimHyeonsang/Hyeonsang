@@ -72,7 +72,7 @@ void WeaponShop::NomaltopMenu(int Gold)
 }
 
 
-void WeaponShop::showweaponNemnnu(bool& bweaponUse, WEAPON Type, Player* player, Weapon* useweapon)
+void WeaponShop::showweaponNemnnu(bool& bweaponUse, WEAPON Type, Player* player)
 {
 	bDaggerMenu = true;
 	bWeaponchange = false;
@@ -135,8 +135,10 @@ void WeaponShop::showweaponNemnnu(bool& bweaponUse, WEAPON Type, Player* player,
 						++count;
 						if (count + Page == select)
 						{
-							player->Buy(weaponlist, Type);
-							useweapon = weaponlist;
+							if (JobCheckking(player))
+								player->Buy(weaponlist, Type);
+							else
+								cout << "구매실패!" << endl;
 						}
 					}
 				}
@@ -219,7 +221,10 @@ void WeaponShop::showweaponNemnnu(bool& bweaponUse, WEAPON Type, Player* player,
 		}
 	}
 }
-
+bool WeaponShop::JobCheckking(Player* job)
+{
+	return job->EquipCheck();
+}
 
 WeaponShop::~WeaponShop()
 {

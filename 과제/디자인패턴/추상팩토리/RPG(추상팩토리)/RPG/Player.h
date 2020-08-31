@@ -4,13 +4,7 @@
 #include"Weapon.h"
 #include"Inventory.h"
 
-enum PLAYERJOB
-{
-	PLAYERJOB_KNIGHT,
-	PLAYERJOB_ASSASSIN,
-	PLAYERJOB_WIZARD,
-	PLAYERJOB_ARCHER
-};
+
 typedef struct Player_Info
 {
 	string name;
@@ -32,7 +26,6 @@ private:
 	int power_random;
 	int health_random;
 	bool bWeaponchange;
-	Weapon* m_pweapon;
 	int number;
 	Inventory* inventory;//bag안에 무기 정보를 입력
 	Inventory* Daggerbag;
@@ -42,6 +35,7 @@ private:
 	Inventory* Swordbag;
 	Inventory* Hammerbag;
 	Inventory* Money;
+
 	Player* knight;
 	Player* assassin;
 	Player* wizard;
@@ -83,10 +77,15 @@ public:
 	{
 		return info->Gold;
 	}
+	inline PLAYERJOB job()
+	{
+		return playerjob;
+	}
 	Player();
 	~Player();
 protected:
 	Weapon* GetWeapon();
+	Weapon* m_pweapon;
 	PLAYERJOB playerjob;
 };
 

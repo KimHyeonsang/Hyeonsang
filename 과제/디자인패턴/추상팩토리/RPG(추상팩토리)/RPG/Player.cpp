@@ -68,7 +68,8 @@ void Player::showplayer(int x, int y)
 	map.DrawMidText("=======  아이디 : "+ info->name + " 직업 :"+jobname +" < " + to_string(info->Level) + "Lv>=====",x,y + line++ * 2);
 	map.DrawMidText("공격력 = " + to_string(info->power) + "  생명력 = " + to_string(info->Current_health) + " / " + to_string(info->Max_health), x, y + line++ * 2);
 	map.DrawMidText("경험치 = " + to_string(info->Current_experience) + " / " + to_string(info->Max_experience) + "  GerExp = " + to_string(info->Earned_Experience), x, y + line++ * 2);
-	map.DrawMidText("Gold = " + to_string(info->Gold), x, y + line * 2);
+	map.DrawMidText("Gold = " + to_string(info->Gold), x, y + line++ * 2);
+	m_pweapon->ShowInfo(x, y + line * 2);
 }
 void Player::SetWeapon(Weapon* _weapon)
 {
@@ -292,6 +293,7 @@ Weapon * Player::GetWeapon()
 Knight::Knight()
 {
 	playerjob = PLAYERJOB_KNIGHT;
+	m_pweapon = new Sword();
 }
 
 bool Knight::EquipCheck()
@@ -302,13 +304,14 @@ bool Knight::EquipCheck()
 
 	cout << "검 착용!" << endl;
 
-	return sword->weaponAttack();
+	return true;
 }
 
 /* Archer */
 Archer::Archer()
 {
 	playerjob = PLAYERJOB_ARCHER;
+	m_pweapon = new Bow();
 }
 
 bool Archer::EquipCheck()
@@ -320,13 +323,14 @@ bool Archer::EquipCheck()
 
 	cout << "활 착용!" << endl;
 
-	return bow->weaponAttack();
+	return true;
 }
 
 /* Wizard */
 Wizard::Wizard()
 {
 	playerjob = PLAYERJOB_WIZARD;
+	m_pweapon = new Wand();
 }
 
 bool Wizard::EquipCheck()
@@ -338,13 +342,14 @@ bool Wizard::EquipCheck()
 
 	cout << "지팡이 착용!" << endl;
 
-	return staff->weaponAttack();
+	return true;
 }
 
 /*Assassin */
 Assassin::Assassin()
 {
 	playerjob = PLAYERJOB_ASSASSIN;
+	m_pweapon = new Dagger();
 }
 
 bool Assassin::EquipCheck()
@@ -356,5 +361,5 @@ bool Assassin::EquipCheck()
 
 	cout << "대거 착용!" << endl;
 
-	return dagger->weaponAttack();
+	return true;
 }

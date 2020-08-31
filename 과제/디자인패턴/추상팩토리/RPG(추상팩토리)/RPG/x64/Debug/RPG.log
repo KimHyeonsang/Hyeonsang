@@ -1,77 +1,78 @@
 ﻿  GameManager.cpp
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\mapdraw.h(19): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(25): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(34): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(67): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(75): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(88): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(96): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(97): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(105): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(114): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(127): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(128): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(129): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(130): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(131): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(132): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(133): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(134): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(144): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(145): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(176): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(192): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(193): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(155): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\mapdraw.h(19): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(25): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(34): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(55): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(63): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(76): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(84): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(92): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(101): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(114): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(115): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(116): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(117): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(118): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(119): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(120): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(121): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(131): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(132): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(163): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(179): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(180): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(142): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(156): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(143): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(214): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(208): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(201): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(195): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(209): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(196): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(230): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(217): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(231): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(218): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1774): note: 'sprintf' 선언을 참조하십시오.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(246): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(247): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(248): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(249): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(250): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(251): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(252): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(253): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(254): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(282): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(283): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(284): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(287): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(291): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(293): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(295): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(300): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(302): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(304): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(305): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(307): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(309): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(311): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(315): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(317): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(319): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(321): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(374): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(393): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(409): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(410): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(411): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(412): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(413): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(414): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(415): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(416): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(417): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a11\desktop\rpg(추상팩토리)\rpg\player.h(73): warning C4715: 'Player::power': 모든 제어 경로에서 값을 반환하지는 않습니다.
-  RPG.vcxproj -> C:\Users\A11\Desktop\RPG(추상팩토리)\x64\Debug\RPG.exe
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(233): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(234): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(235): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(236): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(237): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(238): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(239): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(240): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(241): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(269): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(270): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(273): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(277): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(279): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(281): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(286): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(288): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(290): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(291): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(293): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(295): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(297): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(301): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(303): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(305): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(307): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(360): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(379): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(395): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(396): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(397): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(398): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(399): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(400): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(401): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(402): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(403): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(451): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\gamemanager.cpp(452): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note: 'getch' 선언을 참조하십시오.
+c:\users\asakq\desktop\rpg(추상팩토리)\rpg\player.h(67): warning C4715: 'Player::power': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  RPG.vcxproj -> C:\Users\asakq\Desktop\RPG(추상팩토리)\x64\Debug\RPG.exe

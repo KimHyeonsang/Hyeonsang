@@ -4,7 +4,6 @@
 #include"Monster.h"
 #include"Player.h"
 #include"WeaponShop.h"
-#include"PlayerFactory.h"
 #define ROCK 2
 #define SCISSORS 1
 #define PAPER 3
@@ -29,14 +28,7 @@ private:
 	bool bweaponUse;
 	bool bWeaponchange;
 
-	KnightCharacter* knightFactory;
-	ArcherCharacter* archerFactory;
-	WizardCharacter* wizardFactory;
-	AssassinCharacter* assassinFactory;
-
 	Player* player;
-
-	Weapon* useweapon;
 public:
 	static GameManager* GetInstance()
 	{
@@ -63,6 +55,7 @@ public:
 	void Rock_Paper_Scissors(int Playerkey, int Monsterrandom, int Select);
 	void weaponShop();
 	void SelectJob();
+	void Different_profession();
 	GameManager();
 	~GameManager();
 };

@@ -34,31 +34,19 @@ void GameManager::SelectJob()
 	Select = map.MenuSelectCursor(4, 3, WIDTH * 0.25f, HEIGHT * 0.3f);
 	if (Select == 1)
 	{
-		 knightFactory = new KnightCharacter();
-		 player = knightFactory->CreateJobClass();
-		 useweapon = knightFactory->CreateWeapon();
-		 player->SetWeapon(useweapon);
+		 player = new Knight();
 	}
 	else if (Select == 2)
 	{
-		assassinFactory = new AssassinCharacter();
-		player = assassinFactory->CreateJobClass();
-		useweapon = assassinFactory->CreateWeapon();
-		player->SetWeapon(useweapon);
+		player = new Assassin();
 	}
 	else if (Select == 3)
 	{
-		wizardFactory = new WizardCharacter();
-		player = wizardFactory->CreateJobClass();
-		useweapon = wizardFactory->CreateWeapon();
-		player->SetWeapon(useweapon);
+		player = new Wizard();
 	}
 	else if (Select == 4)
 	{
-		archerFactory = new ArcherCharacter();
-		player = archerFactory->CreateJobClass();
-		useweapon = archerFactory->CreateWeapon();
-		player->SetWeapon(useweapon);
+		player = new Archer();
 	}
 }
 void GameManager::NewGame()
@@ -94,7 +82,6 @@ void GameManager::NewGame()
 			system("cls");
 			YELLOW
 				player->showplayer(WIDTH, HEIGHT*0.4f);
-			useweapon->ShowInfo(WIDTH, HEIGHT*0.6f);
 			ORIGINAL
 				system("pause>null");
 			break;
@@ -280,7 +267,6 @@ void GameManager::monsterbatte(int Select)
 		ORIGINAL
 			YELLOW
 			player->showplayer(WIDTH*0.5f, HEIGHT*0.14f);
-		useweapon->ShowInfo(WIDTH*0.5f, HEIGHT*0.34f);
 		map.TextDraw("가위 : 1  바위 : 2  보 : 3", WIDTH*0.56f, HEIGHT*0.35f);
 		if (bRamdomeffect == true)
 		{
@@ -417,21 +403,53 @@ void GameManager::weaponShop()
 		switch (Select = map.MenuSelectCursor(7, 2, WIDTH * 0.3f, HEIGHT*0.38f))
 		{
 		case WEAPON_DAGGER:
+			if (player->job() != PLAYERJOB_ASSASSIN)
+				Different_profession();
+			else
+				shop.showweaponNemnnu(bweaponUse, (WEAPON)Select, player);
+			break;
 		case WEAPON_GUN:
+			if (player->job() != PLAYERJOB_ARCHER)
+				Different_profession();
+			else
+				shop.showweaponNemnnu(bweaponUse, (WEAPON)Select, player);
+			break;
 		case WEAPON_SWORD:
+			if (player->job() != PLAYERJOB_KNIGHT)
+				Different_profession();
+			else
+				shop.showweaponNemnnu(bweaponUse, (WEAPON)Select, player);
+			break;
 		case WEAPON_WAND:
+			if (player->job() != PLAYERJOB_WIZARD)
+				Different_profession();
+			else
+				shop.showweaponNemnnu(bweaponUse, (WEAPON)Select, player);
+			break;
 		case WEAPON_BOW:
-		case WEAPON_HAMMER:
-			
-			if (bweaponUse == true)
-				player->finalweapon();
-			shop.showweaponNemnnu(bweaponUse, (WEAPON)Select, player,useweapon);
-			player->SetWeapon(useweapon);
+			if (player->job() != PLAYERJOB_ARCHER)
+				Different_profession();
+			else
+				shop.showweaponNemnnu(bweaponUse, (WEAPON)Select, player);
+			break;
+		case WEAPON_HAMMER:			
+			/*if (bweaponUse == true)
+				player->finalweapon();*/
+			if (player->job() != PLAYERJOB_KNIGHT)
+				Different_profession();
+			else
+				shop.showweaponNemnnu(bweaponUse, (WEAPON)Select, player);
 			break;
 		case WEAPON_END:
 			return;
 		}
 	}
+}
+void GameManager::Different_profession()
+{
+	system("cls");
+	map.DrawMidText("다른 직업군입니다. 구매할수없습니다.", WIDTH, HEIGHT*0.5f);
+	getch();
 }
 
 GameManager::~GameManager()
