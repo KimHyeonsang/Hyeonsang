@@ -266,7 +266,7 @@ void GameManager::monsterbatte(int Select)
 			map.BoxDraw(0, 0, WIDTH, HEIGHT);
 		ORIGINAL
 			YELLOW
-			player->showplayer(WIDTH*0.5f, HEIGHT*0.14f);
+			player->showplayer(WIDTH, HEIGHT*0.1f);
 		map.TextDraw("가위 : 1  바위 : 2  보 : 3", WIDTH*0.56f, HEIGHT*0.35f);
 		if (bRamdomeffect == true)
 		{

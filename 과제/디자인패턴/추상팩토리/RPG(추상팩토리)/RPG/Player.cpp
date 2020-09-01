@@ -65,11 +65,11 @@ void Player::showplayer(int x, int y)
 		jobname = "궁수";
 		break;
 	}
-	map.DrawMidText("=======  아이디 : "+ info->name + " 직업 :"+jobname +" < " + to_string(info->Level) + "Lv>=====",x,y + line++ * 2);
-	map.DrawMidText("공격력 = " + to_string(info->power) + "  생명력 = " + to_string(info->Current_health) + " / " + to_string(info->Max_health), x, y + line++ * 2);
-	map.DrawMidText("경험치 = " + to_string(info->Current_experience) + " / " + to_string(info->Max_experience) + "  GerExp = " + to_string(info->Earned_Experience), x, y + line++ * 2);
-	map.DrawMidText("Gold = " + to_string(info->Gold), x, y + line++ * 2);
-	m_pweapon->ShowInfo(x, y + line * 2);
+	map.DrawMidText("=======  아이디 : "+ info->name + " 직업 :"+jobname +" < " + to_string(info->Level) + "Lv>=====",x,y + line++);
+	map.DrawMidText("공격력 = " + to_string(info->power) + "  생명력 = " + to_string(info->Current_health) + " / " + to_string(info->Max_health), x, y + line++);
+	map.DrawMidText("경험치 = " + to_string(info->Current_experience) + " / " + to_string(info->Max_experience) + "  GerExp = " + to_string(info->Earned_Experience), x, y + line++);
+	map.DrawMidText("Gold = " + to_string(info->Gold), x, y + line++);
+	m_pweapon->ShowInfo(x, y + line);
 }
 void Player::SetWeapon(Weapon* _weapon)
 {
