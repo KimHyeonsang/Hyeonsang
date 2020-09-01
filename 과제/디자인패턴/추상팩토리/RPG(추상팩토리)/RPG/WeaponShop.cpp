@@ -72,7 +72,7 @@ void WeaponShop::NomaltopMenu(int Gold)
 }
 
 
-void WeaponShop::showweaponNemnnu(bool& bweaponUse, WEAPON Type, Player* player)
+void WeaponShop::showweaponNemnnu(WEAPON Type, Player* player)
 {
 	bDaggerMenu = true;
 	bWeaponchange = false;
@@ -204,7 +204,7 @@ void WeaponShop::showweaponNemnnu(bool& bweaponUse, WEAPON Type, Player* player)
 				}
 				break;
 			}
-			bweaponUse = true;
+			
 		}
 		else if (Menucount - 2 == select && Page - 5 >= 0)
 		{

@@ -53,7 +53,7 @@ public:
 	void Buy(Weapon* newweapon, WEAPON Type);
 	int weaponeffect(bool& bRamdomeffect);
 	void showeffect();
-	void finalweapon();
+	Player* SelectJob(int select);
 	void invenview(int x,int y);
 	void SetWeapon(Weapon* _weapon);
 	inline string playername()
@@ -62,8 +62,7 @@ public:
 	}
 	inline int power()
 	{
-		if (info->itemnumber == 0)
-			return info->power;
+		return info->power + m_pweapon->weaponAttack();
 	}
 	inline int Earned_Experience()
 	{

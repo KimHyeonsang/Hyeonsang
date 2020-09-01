@@ -29,7 +29,7 @@ private:
 public:
 	WeaponShop();
 	void NomaltopMenu(int Gold);
-	void showweaponNemnnu(bool& bweaponUse, WEAPON  Type, Player* player);
+	void showweaponNemnnu(WEAPON  Type, Player* player);
 //	void ShowSelect(int Select);
 	bool JobCheckking(Player* job);
 	inline int WeaponNumber()

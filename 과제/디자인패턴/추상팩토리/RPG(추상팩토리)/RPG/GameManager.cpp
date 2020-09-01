@@ -13,7 +13,7 @@ GameManager::GameManager()
 	batte = true;
 	batteselect = true;
 	bRamdomeffect = false;
-	bweaponUse = false;
+//	bweaponUse = false;
 	bWeaponchange = false;
 }
 
@@ -32,22 +32,8 @@ void GameManager::SelectJob()
 	map.DrawMidText("3. 마법사(완드) ", WIDTH, y + line++ * 3);
 	map.DrawMidText("4. 궁수(활,총)  ", WIDTH, y + line++ * 3);
 	Select = map.MenuSelectCursor(4, 3, WIDTH * 0.25f, HEIGHT * 0.3f);
-	if (Select == 1)
-	{
-		 player = new Knight();
-	}
-	else if (Select == 2)
-	{
-		player = new Assassin();
-	}
-	else if (Select == 3)
-	{
-		player = new Wizard();
-	}
-	else if (Select == 4)
-	{
-		player = new Archer();
-	}
+	player = player->SelectJob(Select);
+	
 }
 void GameManager::NewGame()
 {
@@ -343,11 +329,11 @@ void GameManager::Rock_Paper_Scissors(int Playerkey, int Monsterrandom, int Sele
 		bPlayerwin = true;
 		bPlayerLose = false;
 		bDraw = false;
-		if (bweaponUse == true)//무기를 장착하면
-		{
-			Ms.Damage(player->weaponeffect(bRamdomeffect), Select);//효과확률
-		}
-		else
+		//if (bweaponUse == true)//무기를 장착하면
+		//{
+		//	Ms.Damage(player->weaponeffect(bRamdomeffect), Select);//효과확률
+		//}
+		//else
 			Ms.Damage(player->power(), Select);//일반 공격 무기있으면 무기랑 합한 데미지
 
 		if (Ms.Current_health(Select) <= 0)
@@ -406,39 +392,37 @@ void GameManager::weaponShop()
 			if (player->job() != PLAYERJOB_ASSASSIN)
 				Different_profession();
 			else
-				shop.showweaponNemnnu(bweaponUse, (WEAPON)Select, player);
+				shop.showweaponNemnnu( (WEAPON)Select, player);
 			break;
 		case WEAPON_GUN:
 			if (player->job() != PLAYERJOB_ARCHER)
 				Different_profession();
 			else
-				shop.showweaponNemnnu(bweaponUse, (WEAPON)Select, player);
+				shop.showweaponNemnnu( (WEAPON)Select, player);
 			break;
 		case WEAPON_SWORD:
 			if (player->job() != PLAYERJOB_KNIGHT)
 				Different_profession();
 			else
-				shop.showweaponNemnnu(bweaponUse, (WEAPON)Select, player);
+				shop.showweaponNemnnu( (WEAPON)Select, player);
 			break;
 		case WEAPON_WAND:
 			if (player->job() != PLAYERJOB_WIZARD)
 				Different_profession();
 			else
-				shop.showweaponNemnnu(bweaponUse, (WEAPON)Select, player);
+				shop.showweaponNemnnu( (WEAPON)Select, player);
 			break;
 		case WEAPON_BOW:
 			if (player->job() != PLAYERJOB_ARCHER)
 				Different_profession();
 			else
-				shop.showweaponNemnnu(bweaponUse, (WEAPON)Select, player);
+				shop.showweaponNemnnu( (WEAPON)Select, player);
 			break;
 		case WEAPON_HAMMER:			
-			/*if (bweaponUse == true)
-				player->finalweapon();*/
 			if (player->job() != PLAYERJOB_KNIGHT)
 				Different_profession();
 			else
-				shop.showweaponNemnnu(bweaponUse, (WEAPON)Select, player);
+				shop.showweaponNemnnu( (WEAPON)Select, player);
 			break;
 		case WEAPON_END:
 			return;

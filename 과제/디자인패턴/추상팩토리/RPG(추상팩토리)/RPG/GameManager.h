@@ -25,7 +25,7 @@ private:
 	bool batte;
 	bool batteselect;
 	bool bRamdomeffect;
-	bool bweaponUse;
+//	bool bweaponUse;
 	bool bWeaponchange;
 
 	Player* player;

@@ -59,7 +59,7 @@ void Item::View(int x,int y) //가방을 선택시에 가방안에 물품 출력
 	if(weaponlist == NULL)
 		map.DrawMidText("돈 :" + m_iMoney,x *1.65f,y - 3);
 	else
-		weaponlist->ShowInfo(x, y);
+		weaponlist->ShowInfo(x, y);//물품들 나열
 }
 
 Bag::Bag(string name):Inventory(name)
@@ -72,7 +72,7 @@ Bag::~Bag()
 	inventoryList.clear();
 }
 
-void Bag::View(int x,int y)
+void Bag::View(int x,int y)//가방을 나열
 {	
 	 int line = 1;
 	 int weaponnumber = 1;

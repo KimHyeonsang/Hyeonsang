@@ -248,8 +248,7 @@ void Player::invenview(int x,int y)
 {
 	system("cls");
 	
-	inventory->View(x,y);
-	
+	inventory->View(x,y);	
 
 }
 int Player::weaponeffect(bool& bRamdomeffect)
@@ -261,13 +260,23 @@ void  Player::showeffect()
 	m_pweapon->ShowWeaponeffect();
 }
 
-void Player::finalweapon()
+Player* Player::SelectJob(int select)
 {
-	if (info->itemnumber == 1)
+	if (select == 1)
 	{
-		delete m_pweapon;
-		if (m_pweapon != NULL)
-			m_pweapon = NULL;
+		return new Knight();
+	}
+	else if (select == 2)
+	{
+		return new Assassin();
+	}
+	else if (select == 3)
+	{
+		return new Wizard();
+	}
+	else if (select == 4)
+	{
+		return new Archer();
 	}
 }
 Player::~Player()
