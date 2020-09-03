@@ -3,3 +3,11 @@
 직업에 착용할수없는 무기상점은 못들어가게 만듬
 
 https://jusungpark.tistory.com/14
+
+https://gone-sw.tistory.com/5
+
+게임 매니저라는 큰 틀에 
+
+던전 매니저, 플레이어매니저,  몬스터 정보 매니저 , 무기샵 매니저로 나눈다.
+
+직업매니저,  플레이어 정보 매니저 = player
