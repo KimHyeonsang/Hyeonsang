@@ -119,7 +119,6 @@ JobMap::JobMap()
 
 JobMap::~JobMap()
 {
-	cout << "Destory MyView" << endl;
 }
 
 void JobMap::Render()
@@ -128,7 +127,7 @@ void JobMap::Render()
 	int line = 0;
 	int y = HEIGHT * 0.2f;
 	BLUE
-		BoxDraw(0, 0, WIDTH, HEIGHT);
+		BoxDraw(0, 0, WIDTH * 2, HEIGHT);
 	ORIGINAL
 		DrawMidText("직업을 정하세요(신중하게 정하세요.)  ", WIDTH, y + line++ * 3);
 	DrawMidText("1. 전사(검,해머)  ", WIDTH, y + line++ * 3);
@@ -145,13 +144,12 @@ NewGameMenu::NewGameMenu()
 
 NewGameMenu::~NewGameMenu()
 {
-	cout << "Destory MyView" << endl;
 }
 
 void NewGameMenu::Render()
 {
 	BLUE
-		BoxDraw(0, 0, WIDTH, HEIGHT);
+		BoxDraw(0, 0, WIDTH * 2, HEIGHT);
 	ORIGINAL
 	TextDraw("☆★ Menu ★☆", WIDTH*0.75f, HEIGHT*0.3f);
 	TextDraw("Dongeon", WIDTH*0.88f, HEIGHT*0.38f);
@@ -171,14 +169,14 @@ firstmenu::firstmenu()
 
 firstmenu::~firstmenu()
 {
-	cout << "Destory MyView" << endl;
+	
 }
 
 void firstmenu::Render()
 {
 	system("cls");
 	BLUE
-		BoxDraw(0, 0, WIDTH, HEIGHT);
+		BoxDraw(0, 0, WIDTH * 2 , HEIGHT);
 	ORIGINAL
 	DrawMidText("☆★ DonGeonRPG ★☆", WIDTH, HEIGHT* 0.4);
 	DrawMidText("New Game", WIDTH, HEIGHT* 0.4 + 3);
@@ -195,14 +193,13 @@ Mainmenu::Mainmenu()
 
 Mainmenu::~Mainmenu()
 {
-	cout << "Destory MyView" << endl;
 }
 
 void Mainmenu::Render()
 {
 	system("cls");
 	BLUE
-		BoxDraw(0, 0, WIDTH, HEIGHT);
+		BoxDraw(0, 0, WIDTH * 2, HEIGHT);
 	ORIGINAL
 	TextDraw("☆★ Menu ★☆", WIDTH*0.75f, HEIGHT*0.3f);
 	TextDraw("Dongeon", WIDTH*0.88f, HEIGHT*0.38f);
@@ -223,14 +220,13 @@ danganmenu::danganmenu()
 
 danganmenu::~danganmenu()
 {
-	cout << "Destory MyView" << endl;
 }
 
 void danganmenu::Render()
 {
 	system("cls");
 	BLUE
-		BoxDraw(0, 0, WIDTH, HEIGHT);
+		BoxDraw(0, 0, WIDTH * 2, HEIGHT);
 	ORIGINAL
 		TextDraw("====던전 입구====", WIDTH*0.75f, HEIGHT*0.2f);
 	TextDraw("1층던전 : [고블린]", WIDTH*0.78f, HEIGHT*0.38f);
@@ -251,14 +247,13 @@ shopMenu::shopMenu()
 
 shopMenu::~shopMenu()
 {
-	cout << "Destory MyView" << endl;
 }
 
 void shopMenu::Render()
 {
 	system("cls");
 	BLUE
-		BoxDraw(0, 0, WIDTH, HEIGHT);
+		BoxDraw(0, 0, WIDTH * 2, HEIGHT);
 	ORIGINAL
 	TextDraw("♧ ♣ S H O P ♣ ♧", WIDTH * 0.7f, HEIGHT*0.3f);
 	TextDraw("Dagger", WIDTH * 0.8f, HEIGHT*0.38f);

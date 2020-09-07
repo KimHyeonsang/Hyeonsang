@@ -114,10 +114,12 @@ void GameManager::Playinfo()
 	ORIGINAL
 		system("pause>null");
 }
+
 void GameManager::playerinveninfo()
 {
 	player->invenview(WIDTH, HEIGHT * 0.1f);
 }
+
 void GameManager::Monsterinfo()
 {
 	int y = HEIGHT * 0.14f;
@@ -129,6 +131,7 @@ void GameManager::Monsterinfo()
 	}
 	system("pause>null");
 }
+
 void GameManager::Load(char* buf, int Select, char *buf2)
 {
 	system("cls");
@@ -151,6 +154,7 @@ void GameManager::Load(char* buf, int Select, char *buf2)
 		player->LoadPlayer(buf2);
 	}
 }
+
 void GameManager::Save(char* buf, int Select, char* buf2)
 {
 	system("cls");
@@ -161,6 +165,7 @@ void GameManager::Save(char* buf, int Select, char* buf2)
 	player->Save(buf2, shop.WeaponNumber());
 	bLoad = false;
 }
+
 void GameManager::Dangan(bool batteselect)
 {
 	int Select;
@@ -180,6 +185,7 @@ void GameManager::Dangan(bool batteselect)
 		break;
 	}
 }
+
 void GameManager::monsterbatte(int Select,bool batteselect)
 {
 	int Monsterrandom = 0;
@@ -254,6 +260,7 @@ void GameManager::monsterbatte(int Select,bool batteselect)
 		}
 	}
 }
+
 void GameManager::Rock_Paper_Scissors(int Playerkey, int Monsterrandom, int Select, bool batteselect)
 {
 	bRamdomeffect = false;
@@ -310,6 +317,7 @@ void GameManager::Rock_Paper_Scissors(int Playerkey, int Monsterrandom, int Sele
 			}
 	}
 }
+
 void GameManager::weaponShop()
 {
 	int Select;
@@ -356,12 +364,14 @@ void GameManager::weaponShop()
 		return;
 	}
 }
+
 void GameManager::Different_profession()
 {
 	system("cls");
 	map->DrawMidText("다른 직업군입니다. 구매할수없습니다.", WIDTH, HEIGHT*0.5f);
 	getch();
 }
+
 int GameManager::mapSelect(int MenuLen, int AddCol, int x, int y)
 {
 	return map->MenuSelectCursor(MenuLen, AddCol, x, y);
