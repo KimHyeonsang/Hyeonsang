@@ -35,7 +35,7 @@ LPCTSTR lpszClass = TEXT("HelloWorld"); //클래스 명 : 창이름
 }
 	double GetRadian(double _num)
 {
-		return _num * PIE / 180;
+		return _num * (2 * PIE / 100);
 }
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 {
@@ -59,13 +59,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		LineTo(hdc, 300, 90);
 		Rectangle(hdc, 300, 400, 500, 600);
 		Ellipse(hdc, 700, 0, 1000, 300); //정원 
-		for (int i = 0; i <= 360; i++)
+		for (int i = 0; i <= 100; i++)
 			SetPixel(hdc, 500 + radius * cos(GetRadian(i)), 300 +radius * sin(GetRadian(i)), RGB(255, 0, 0)); //정원
 			
-		for (int i = 0; i <= 360; i++)
+		for (int i = 0; i <= 100; i++)
 			SetPixel(hdc, 1000 + radius * cos(GetRadian(i)), 500 + y_radius * sin(GetRadian(i)), RGB(255, 0, 255)); //정원
 		EndPaint(hWnd, &ps);
 		return 0;
 	}
 	return(DefWindowProc(hWnd, iMessage, wParam, lParam)); // case에 있는 메시지를 제외한 나머지 메시지를 처리한다.
-}
+}
