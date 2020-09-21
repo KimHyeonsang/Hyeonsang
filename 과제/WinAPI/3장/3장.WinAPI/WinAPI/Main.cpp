@@ -87,15 +87,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 			{
 				temporary_y = HIWORD(lParam); //임시 y축에 저장
 				temporary_x = LOWORD(lParam); //임시 x축에 저장
-				if (temporary_y - 50 > rt.top && temporary_y + 50 < rt.bottom)
+				if (temporary_y - 50 > rt.top && temporary_y + 50 < rt.bottom) //임시 좌표 y축이 범위 안에있을경우 
 				{
 					Mouse_y = HIWORD(lParam);
 					temporary_x = LOWORD(lParam);
 				}
 			}
-			if (temporary_x - 50 > rt.left && temporary_x + 50 < rt.right) //만약 임시 x축이 안으로 올경우 작동
-			{
-				Mouse_y = HIWORD(lParam);				
+			if (temporary_x - 50 >= rt.left && temporary_x + 50 <= rt.right) //만약 임시 x축이 안으로 올경우 작동
+			{				
 				Mouse_x = LOWORD(lParam);
 			}
 						
@@ -125,7 +124,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 			}
 			if (temporary_y + 50 < rt.bottom && temporary_y - 50 > rt.top)//사각형 안에 있을경우 
 			{
-				Mouse_x = LOWORD(lParam);
 				Mouse_y = HIWORD(lParam);
 			}			
 		}
