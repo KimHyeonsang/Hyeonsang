@@ -1,0 +1,3 @@
+﻿  winmain.cpp
+c:\users\asakq\desktop\캐릭터애니메이션\winmain.cpp(53): warning C4101: 'st' :참조되지 않은 지역 변수입니다.
+  캐릭터애니메이션.vcxproj -> C:\Users\asakq\Desktop\캐릭터애니메이션\Debug\캐릭터애니메이션.exe
