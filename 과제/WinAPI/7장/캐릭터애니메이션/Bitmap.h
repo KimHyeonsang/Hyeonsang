@@ -20,8 +20,8 @@ public:
 		return m_pThis;
 	}
 	void Init(HWND hWnd);
-	void Draw(HDC hdc,int x);
-	void a(int y);
+	void Draw(HDC hdc,int x,int y,int location);
+	void location_y(int y);
 	~Bitmap();
 };
 
