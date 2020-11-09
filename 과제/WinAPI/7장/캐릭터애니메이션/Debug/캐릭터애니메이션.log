@@ -1,3 +1,5 @@
-﻿  winmain.cpp
-c:\users\asakq\desktop\캐릭터애니메이션\winmain.cpp(53): warning C4101: 'st' :참조되지 않은 지역 변수입니다.
-  캐릭터애니메이션.vcxproj -> C:\Users\asakq\Desktop\캐릭터애니메이션\Debug\캐릭터애니메이션.exe
+﻿  Bitmap.cpp
+  winmain.cpp
+c:\users\a01\desktop\github\minaaa\hyeonsang\과제\winapi\7장\캐릭터애니메이션\winmain.cpp(54): warning C4101: 'st' :참조되지 않은 지역 변수입니다.
+  코드를 생성하고 있습니다...
+  캐릭터애니메이션.vcxproj -> C:\Users\A01\Desktop\Github\minaaa\Hyeonsang\과제\WinAPI\7장\캐릭터애니메이션\Debug\캐릭터애니메이션.exe

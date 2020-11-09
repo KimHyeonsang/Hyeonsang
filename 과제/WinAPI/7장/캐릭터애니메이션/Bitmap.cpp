@@ -21,12 +21,12 @@ void Bitmap::Init(HWND hWnd)
 	m_size.cy = Bit_Info.bmHeight;
 }
 
-void Bitmap::Draw(HDC hdc, int x)
+void Bitmap::Draw(HDC hdc, int x,int y,int location)
 {
-	TransparentBlt(hdc, 300, 150, m_size.cx / 4, m_size.cy / 4,
-		MemDC, (m_size.cx / 4) * m_iy, (m_size.cy / 4) * x, m_size.cx / 4, m_size.cy / 4, RGB(255, 0, 255));
+	TransparentBlt(hdc, x, y, m_size.cx / 4, m_size.cy / 4,
+		MemDC, (m_size.cx / 4) * m_iy, (m_size.cy / 4) * location, m_size.cx / 4, m_size.cy / 4, RGB(255, 0, 255));
 }
-void Bitmap::a(int y)
+void Bitmap::location_y(int y)
 {
 	m_iy = y;
 }
