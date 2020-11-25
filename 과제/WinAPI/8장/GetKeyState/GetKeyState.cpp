@@ -133,28 +133,26 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 				y += 10;
 			jump = y;
 		}
-		if (jump == y)
+		if (jump <= y)
 		{
 			if (GetKeyState(VK_SPACE) & 0x8000)
 			{
 				if (location == 2 || location == 3)
 				{
 					walking = 0;
-						for (int i = 1; i <= 20; i++)
-							y--;
+					y -= 40;
 				}
 				else
 				{
 					walking = 0;
-					for (int i = 1; i <= 20; i++)
-						y--;
+					y -= 40;
 				}
 			}
 		}
 		else if (jump > y)
 		{
-			for (int i = 1; i <= 20; i++)
-				y++;
+			walking = 0;
+			y += 3;
 		}
 		InvalidateRect(hWnd, NULL, false);
 		return 0;
