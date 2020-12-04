@@ -12,6 +12,8 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 	HWND hWnd;
 	HDC hdc;
 	MSG Message;
+	int count = 0;
+	char str[255];
 	WNDCLASS WndClass;
 	g_hInst = hInstance;
 
@@ -45,6 +47,9 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 		{
 			SetPixel(hdc, rand() % 500, rand() % 400, RGB(rand() % 256, rand() % 256,
 				rand() % 256));
+			count++;
+			wsprintf(str, "현재 카운터는 %d입니다", count);
+			TextOut(hdc, 800, 10, str, lstrlen(str));
 		}
 	}
 	ReleaseDC(hWnd, hdc);
