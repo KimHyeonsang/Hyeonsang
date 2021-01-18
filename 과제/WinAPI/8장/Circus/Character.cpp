@@ -6,6 +6,7 @@ Character::Character()
 {
 	m_state = WALK1;
 	m_iHartcount = 3;
+
 }
 
 void Character::Init(HWND hWnd,HDC _m_hBuffer)
@@ -68,14 +69,13 @@ void Character::Init(HWND hWnd,HDC _m_hBuffer)
 
 	m_hart.cx = m_bithart.bmWidth;
 	m_hart.cy = m_bithart.bmHeight;
-	m_MoveSpeed = 1;
+	m_MoveSpeed = 30;
 	m_rect.left = 100;
 	m_rect.top = 450;
 	m_ibefore_y = m_rect.top;
 	m_rect.right = m_rect.left + m_size.cx;
 	m_rect.bottom = m_rect.top + m_size.cy;
 	m_bJumpcheck = false;
-//	SetTimer(m_hWnd, 0, 10000, NULL);
 }
 void Character::Render(HDC _m_hBuffer)
 {
@@ -122,7 +122,7 @@ void Character::hartbreaker()
 	m_state = DIE;
 }
 
-void Character::PlayerKey() //누른 키에 따른 상태 변화
+void Character::PlayerKey(float time,int miter) //누른 키에 따른 상태 변화
 {
 	if (GetKeyState(VK_LEFT) & 0x8000 && m_state != JUMP)
 	{
@@ -136,10 +136,10 @@ void Character::PlayerKey() //누른 키에 따른 상태 변화
 			m_rect.left = 0;
 			m_rect.right = m_rect.left + m_size.cx;
 		}
-		else
+		if (miter == 0)
 		{
-			m_rect.left -= m_MoveSpeed;
-			m_rect.right -= m_MoveSpeed;
+			m_rect.left -= m_MoveSpeed * time;
+			m_rect.right -= m_MoveSpeed * time;
 		}
 	}
 	else if (GetKeyState(VK_RIGHT) & 0x8000 && m_state != JUMP)
@@ -151,13 +151,13 @@ void Character::PlayerKey() //누른 키에 따른 상태 변화
 		m_Direction = RIGHT;
 		if (m_rect.right >= 1200)
 		{
-			m_rect.left = m_rect.right - m_size.cx;;
+			m_rect.left = m_rect.right - m_size.cx;
 			m_rect.right = 1200;
 		}
-		else
+		if (miter == 0)
 		{
-			m_rect.left += m_MoveSpeed;
-			m_rect.right += m_MoveSpeed;
+			m_rect.left += m_MoveSpeed * time;
+			m_rect.right += m_MoveSpeed * time;
 		}
 	}
 	else if (m_state != JUMP)
@@ -169,24 +169,19 @@ void Character::PlayerKey() //누른 키에 따른 상태 변화
 	}
 }
 
-void Character::Update()
+void Character::Update(float time,int miter)
 {
-	PlayerKey();	
-	if (m_bJumpcheck == true && m_state == JUMP) //점프상태일때
+	PlayerKey(time, miter);
+	if (m_bJumpcheck == true && m_state == JUMP) //올라가는 점프상태일때
 	{
-		m_rect.top -= m_MoveSpeed;
-		m_rect.bottom -= m_MoveSpeed;
+		m_rect.top -= m_MoveSpeed * time * 1.5;
+		m_rect.bottom -= m_MoveSpeed * time * 1.5;
 		if (m_Direction == LEFT)
 		{
 			if (m_rect.left <= 0)
 			{
 				m_rect.left = 0;
 				m_rect.right = m_rect.left + m_size.cx;
-			}
-			else
-			{
-				m_rect.left -= m_MoveSpeed;
-				m_rect.right -= m_MoveSpeed;
 			}
 		}
 		else if (m_Direction == RIGHT)
@@ -196,10 +191,10 @@ void Character::Update()
 				m_rect.left = m_rect.right - m_size.cx;;
 				m_rect.right = 1200;
 			}
-			else
+			if (miter == 0)
 			{
-				m_rect.left += m_MoveSpeed;
-				m_rect.right += m_MoveSpeed;
+				m_rect.left += m_MoveSpeed * time;
+				m_rect.right += m_MoveSpeed * time;
 			}
 		}
 		if (m_rect.top <= m_ibefore_y - 180)
@@ -207,21 +202,16 @@ void Character::Update()
 			m_bJumpcheck = false;
 		}
 	}
-	else if(m_bJumpcheck == false && m_state == JUMP) //점프상태일때
+	else if(m_bJumpcheck == false && m_state == JUMP) //내려오는 점프상태일때
 	{
-		m_rect.top += m_MoveSpeed;
-		m_rect.bottom += m_MoveSpeed;
+		m_rect.top += m_MoveSpeed * time * 1.5;
+		m_rect.bottom += m_MoveSpeed * time * 1.5;
 		if (m_Direction == LEFT)
 		{
 			if (m_rect.left <= 0)
 			{
 				m_rect.left = 0;
 				m_rect.right = m_rect.left + m_size.cx;
-			}
-			else
-			{
-				m_rect.left -= m_MoveSpeed;
-				m_rect.right -= m_MoveSpeed;
 			}
 		}
 		else if (m_Direction == RIGHT)
@@ -231,13 +221,13 @@ void Character::Update()
 				m_rect.left = m_rect.right - m_size.cx;;
 				m_rect.right = 1200;
 			}
-			else
+			if (miter == 0)
 			{
-				m_rect.left += m_MoveSpeed;
-				m_rect.right += m_MoveSpeed;
+				m_rect.left += m_MoveSpeed * time;
+				m_rect.right += m_MoveSpeed * time;
 			}
 		}
-		if (m_rect.top >= m_ibefore_y)
+		if (m_rect.top > m_ibefore_y)
 		{
 			m_Direction = IDLE;
 			m_state = WALK1;
@@ -255,11 +245,15 @@ void Character::endlocation(RECT rt)
 
 void Character::replay()
 {
+	m_iHartcount = 3;
 	m_state = WALK1;
-	m_rect.left = 100;
+	m_bJumpcheck = false;
+}
+
+void Character::Motion()
+{
+	m_state = WALK1;
 	m_rect.top = 450;
-	m_ibefore_y = m_rect.top;
-	m_rect.right = m_rect.left + m_size.cx;
 	m_rect.bottom = m_rect.top + m_size.cy;
 	m_bJumpcheck = false;
 }

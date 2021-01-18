@@ -26,15 +26,19 @@ private:
 
 	SIZE m_Diesize;
 	BITMAP m_bitdie;
+
+	int m_iafter;
+	int m_ibefore;
 public:
 	Character();
 	void Init(HWND hWnd,HDC _m_hBuffer);
 	void Render(HDC _m_hBackBuffer);
-	void Update();
-	void PlayerKey();
+	void Update(float time,int miter);
+	void PlayerKey(float time,int miter);
 	void hartbreaker();
 	void endlocation(RECT rt);
 	void replay();
+	void Motion();
 	inline RECT characterlocation()
 	{
 		return m_rect;
@@ -42,6 +46,10 @@ public:
 	inline Direction direction()
 	{
 		return m_Direction;
+	}
+	inline State state()
+	{
+		return m_state;
 	}
 	inline int hartcount()
 	{

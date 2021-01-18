@@ -7,6 +7,9 @@ GameManager::GameManager()
 	m_bcrash = false;
 	m_icount = 0;
 	m_iScore = 0;
+	m_irandem = 0;
+	m_dwLastTime = GetTickCount();
+	m_dwCurTime = GetTickCount();
 }
 
 void GameManager::Init(HWND hWnd)
@@ -19,105 +22,143 @@ void GameManager::Init(HWND hWnd)
 	character = new Character;
 	character->Init(m_hWnd, m_hBackBuffer);
 	m_ground = new Ground;
-	m_ground->Init(0,200,m_hBackBuffer, character->characterlocation());
-	m_Crowd[0] = new crowd;
-	m_Crowd[0]->Init(0,136,m_hBackBuffer, character->characterlocation());
-	m_Crowd[1] = new crowd;
-	m_Crowd[1]->Init(1200, 136, m_hBackBuffer, character->characterlocation());
+	m_ground->Init(0,200,m_hBackBuffer);
+	for (int i = 0; i < MAX; i++)
+	{
+		m_Crowd[i] = new crowd;
+		m_Crowd[i]->Init(64 * i, 136, m_hBackBuffer);
+	}
 	m_elephant[0] = new Elephant;
-	m_elephant[0]->Init(1134,133,m_hBackBuffer, character->characterlocation());
+	m_elephant[0]->Init(1134,133,m_hBackBuffer);
 	m_elephant[1] = new Elephant;
-	m_elephant[1]->Init(2334, 133, m_hBackBuffer, character->characterlocation());
+	m_elephant[1]->Init(2334, 133, m_hBackBuffer);
 	m_miter = new Miter;
-	m_miter->Init(800,555,m_hBackBuffer, character->characterlocation());
+	m_miter->Init(800,555,m_hBackBuffer);
 	m_jar = new jar;
-	m_jar->Init(m_hBackBuffer, character->characterlocation());
-	m_leftring = new LeftFirering;
-	m_leftring->Init(m_hBackBuffer, character->characterlocation());
-	m_rightring = new RightFirering;
-	m_rightring->Init(m_hBackBuffer, character->characterlocation());
+	m_jar->Init(700,470,m_hBackBuffer);
+
+	m_leftring[0] = new LeftFirering;
+	m_leftring[0]->Init(1300, 210, m_hBackBuffer);
+	m_rightring[0] = new RightFirering;
+	m_rightring[0]->Init(1335, 210, m_hBackBuffer);
+
+	m_leftring[1] = new LeftFirering;
+	m_leftring[1]->Init(1800, 210, m_hBackBuffer);
+	m_rightring[1] = new RightFirering;
+	m_rightring[1]->Init(1835, 210, m_hBackBuffer);
+
 	
 	m_MoneyFirering = new MoneyFirering;
-	m_MoneyFirering->Init(m_hBackBuffer, character->characterlocation());
+	m_MoneyFirering->Init(1820, 270 ,m_hBackBuffer);
 	m_MoneyleftFirering = new MoneyleftFirering;
-	m_MoneyleftFirering->Init(m_hBackBuffer, character->characterlocation());
+	m_MoneyleftFirering->Init(1800,210,m_hBackBuffer);
 	m_MoneyrightFirering = new MoneyrightFirering;
-	m_MoneyrightFirering->Init(m_hBackBuffer, character->characterlocation());
+	m_MoneyrightFirering->Init(1835, 210,m_hBackBuffer);
 
 	m_EndBox = new EndBox;
-	m_EndBox->Init(1300, 470, m_hBackBuffer, character->characterlocation());
+	m_EndBox->Init(1300, 470, m_hBackBuffer);
 	SetTimer(m_hWnd, 0, 10000, NULL);
 	ReleaseDC(m_hWnd, hdc);
 }
 void GameManager::Update()
 {
-	if (character->hartcount() == 0)//목숨이 없을떄 종료
+	m_dwCurTime = GetTickCount();
+	m_fDeltaTime = (m_dwCurTime - m_dwLastTime) / 500.0f;
+
+	if (m_state == DIE)
 	{
-		MessageBox(m_hWnd, TEXT(m_charMiter), TEXT("수고하셨습니다."), MB_OK);
-		SendMessage(m_hWnd, WM_DESTROY, 0, 0);
-		return;
-	}
-	else
-	{
-		if (m_bcrash == true)//재충돌 지연시간
-			m_icount++;
-		if ((m_state == WIN || m_state == DIE) && m_icount == 150)
+		if (m_fDeltaTime >= 2)
 		{
 			replay();
+			m_state = NOMAL;
 			m_icount = 0;
 			m_iScore = 0;
-			m_state = NOMAL;
-			return;
-		}
-		if (m_state == WIN || m_state == DIE)
+		}			
+	}
+	else if (m_fDeltaTime >= 0.08f)
+	{
+		if (character->hartcount() == 0)//목숨이 없을떄 종료
 		{
-			return;
-		}
-		if (m_icount == 300)
-		{
-			m_icount = 0;
-			m_bcrash = false;
-		}
-		character->Update();
-		crash();
-		if (m_miter->miter() == 10) //0미터일떄
-		{
-			m_EndBox->Update(character->characterlocation());
-
-			if (m_EndBox->Endlocation().left > 1180)
+			if (MessageBox(m_hWnd, TEXT(m_charMiter), TEXT("수고하셨습니다."), MB_OK) == IDOK)
 			{
-				m_jar->Update(character->characterlocation());
-				m_miter->Update(character->characterlocation());
+				character->replay();
+				replay();
 			}
 		}
 		else
 		{
-			if (character->direction() != IDLE)
+			if (m_bcrash == true)//재충돌 지연시간
+				m_icount++;
+			if (m_state == WIN )
 			{
-				m_Crowd[0]->Update(character->characterlocation());
-				m_Crowd[1]->Update(character->characterlocation());
-				m_elephant[0]->Update(character->characterlocation());
-				m_elephant[1]->Update(character->characterlocation());
-				m_jar->Update(character->characterlocation());
-				m_miter->Update(character->characterlocation());
+				m_icount = 0;
+				m_iScore = 0;
+				Render();
+				return;
 			}
+			if (m_icount == 10)
+			{
+				m_icount = 0;
+				m_bcrash = false;
+			}
+
+			character->Update(m_fDeltaTime, m_miter->miter());
+			crash();
+			if (m_miter->miter() == 0) //0미터일떄
+			{
+				m_EndBox->Update(character->direction(), m_fDeltaTime);
+
+				if (m_EndBox->Endlocation().left > 1180)
+				{
+					m_jar->Update(character->direction(), m_fDeltaTime);
+					m_miter->Update(character->direction(), m_fDeltaTime);
+				}
+			}
+			else
+			{
+				if (character->direction() != IDLE)
+				{
+					for (int i = 0; i < MAX; i++)
+						m_Crowd[i]->Update(character->direction(), m_fDeltaTime);
+					m_elephant[0]->Update(character->direction(), m_fDeltaTime);
+					m_elephant[1]->Update(character->direction(), m_fDeltaTime);
+					m_jar->Update(character->direction(), m_fDeltaTime);
+					m_miter->Update(character->direction(), m_fDeltaTime);
+				}
+			}
+			m_leftring[0]->Update(m_fDeltaTime);
+			m_rightring[0]->Update(m_fDeltaTime);
+
+			if (m_rightring[1]->randommoneyring() == 1) //랜덤숫자가 1일때
+			{
+				m_MoneyFirering->Update(m_fDeltaTime);
+				m_MoneyleftFirering->Update(m_fDeltaTime);
+				m_MoneyrightFirering->Update(m_fDeltaTime);
+
+				if (m_MoneyrightFirering->ringlocation().left <= -100) 
+				{
+					m_rightring[1]->RandomCountReset(1);
+				}
+			}
+			else
+			{
+				m_leftring[1]->Update(m_fDeltaTime);
+				m_rightring[1]->Update(m_fDeltaTime);
+			}
+
+			Score();
+			Render();
+			InvalidateRect(m_hWnd, NULL, false);
 		}
-		m_leftring->Update();
-		m_rightring->Update();
-
-		m_MoneyFirering->Update();
-		m_MoneyleftFirering->Update();
-		m_MoneyrightFirering->Update();
-
-		Render();
-		InvalidateRect(m_hWnd, NULL, false);
+		m_dwLastTime = m_dwCurTime;
 	}
 }
 void GameManager::Score()
 {
-	m_iScore += m_jar->Score(character->characterlocation().left);
-	m_iScore += m_leftring->Score(character->characterlocation().left);
-	m_iScore += m_MoneyleftFirering->Score(character->characterlocation().left);
+	m_iScore += m_jar->Score(character->characterlocation().left, character->state());
+	m_iScore += m_leftring[0]->Score(character->characterlocation().left, character->state());
+	m_iScore += m_leftring[1]->Score(character->characterlocation().left, character->state());
+	m_iScore += m_MoneyleftFirering->Score(character->characterlocation().left, character->state());
 	
 	wsprintf(m_charMiter, "%d점", m_iScore);
 }
@@ -131,39 +172,51 @@ void GameManager::crash()
 			m_bcrash = true;
 			m_state = DIE;
 		}
-		if (IntersectRect(&rt, &character->characterlocation(), &m_EndBox->Endlocation()))//충돌이 캐릭과 단상이면
+		else if (IntersectRect(&rt, &character->characterlocation(), &m_EndBox->Endlocation()))//충돌이 캐릭과 단상이면
 		{
 			character->endlocation(m_EndBox->Endlocation()); //캐릭터모션
-			m_Crowd[0]->End();
-			m_Crowd[1]->End();
+			for(int i=0;i<MAX;i++)
+				m_Crowd[i]->End();
 			
 			m_state = WIN;
 		}
-		if (IntersectRect(&rt, &character->characterlocation(), &m_rightring->ringlocation()))//충돌이 캐릭과 일반 오른쪽불타는링일떄
+		else if (IntersectRect(&rt, &character->characterlocation(), &m_rightring[0]->ringlocation()))//충돌이 캐릭과 일반 오른쪽불타는링일떄
 		{
 			character->hartbreaker();
 			m_state = DIE;
 			m_bcrash = true;
 		}
-		if (IntersectRect(&rt, &character->characterlocation(), &m_leftring->ringlocation()))//충돌이 캐릭과 일반 왼쪽불타는링일떄
+		else if (IntersectRect(&rt, &character->characterlocation(), &m_leftring[0]->ringlocation()))//충돌이 캐릭과 일반 왼쪽불타는링일떄
 		{
 			character->hartbreaker();
 			m_state = DIE;
 			m_bcrash = true;
 		}
-		if (IntersectRect(&rt, &character->characterlocation(), &m_MoneyleftFirering->ringlocation()))//충돌이 캐릭과 돈이있는 왼쪽불타는링일떄
+		else if (IntersectRect(&rt, &character->characterlocation(), &m_rightring[1]->ringlocation()))//충돌이 캐릭과 일반 오른쪽불타는링일떄
 		{
 			character->hartbreaker();
 			m_state = DIE;
 			m_bcrash = true;
 		}
-		if (IntersectRect(&rt, &character->characterlocation(), &m_MoneyrightFirering->ringlocation()))//충돌이 캐릭과 돈이있는 오른쪽불타는링일떄
+		else if (IntersectRect(&rt, &character->characterlocation(), &m_leftring[1]->ringlocation()))//충돌이 캐릭과 일반 왼쪽불타는링일떄
+		{
+			character->hartbreaker();
+			m_state = DIE;
+			m_bcrash = true;
+		}		
+		else if (IntersectRect(&rt, &character->characterlocation(), &m_MoneyleftFirering->ringlocation()))//충돌이 캐릭과 돈이있는 왼쪽불타는링일떄
 		{
 			character->hartbreaker();
 			m_state = DIE;
 			m_bcrash = true;
 		}
-		if (IntersectRect(&rt, &character->characterlocation(), &m_MoneyFirering->money()))//충돌이 캐릭과 돈일떄
+		else if (IntersectRect(&rt, &character->characterlocation(), &m_MoneyrightFirering->ringlocation()))//충돌이 캐릭과 돈이있는 오른쪽불타는링일떄
+		{
+			character->hartbreaker();
+			m_state = DIE;
+			m_bcrash = true;
+		}
+		else if (IntersectRect(&rt, &character->characterlocation(), &m_MoneyFirering->money()))//충돌이 캐릭과 돈일떄
 		{
 			m_iScore += m_MoneyFirering->moneyScore();
 			m_bcrash = true;
@@ -173,18 +226,21 @@ void GameManager::crash()
 
 void GameManager::replay()
 {
-	character->replay();
-	m_Crowd[0]->replay(0, 136, character->characterlocation());
-	m_Crowd[1]->replay(1200, 136, character->characterlocation());
-	m_elephant[0]->replay(1134, 133, character->characterlocation());
-	m_elephant[1]->replay(2334, 133, character->characterlocation());
-	m_miter->replay(800, 555, character->characterlocation());
-	m_jar->replay();
-	m_MoneyleftFirering->replay();
-	m_MoneyFirering->replay();
-	m_leftring->replay();
-	m_rightring->replay();
-	m_MoneyrightFirering->replay();
+	character->Motion();
+	for (int i = 0; i < MAX; i++)
+		m_Crowd[i]->replay(64 * i, 136);
+
+	m_elephant[0]->replay(1134, 133);
+	m_elephant[1]->replay(2334, 133);
+	m_miter->replay(800, 555);
+	m_jar->replay(700,470);
+	m_MoneyleftFirering->replay(1300,210);
+	m_MoneyFirering->replay(1320,270);	
+	m_leftring[0]->replay(1300, 210);
+	m_rightring[0]->replay(1335, 210);
+	m_leftring[1]->replay(1800, 210);
+	m_rightring[1]->replay(1835, 210);	
+	m_MoneyrightFirering->replay(1335,210);
 }
 
 void GameManager::Render()
@@ -194,17 +250,19 @@ void GameManager::Render()
 	m_hBitMap = CreateCompatibleBitmap(hdc, 1200, 600);
 	m_hOldBitMap = (HBITMAP)SelectObject(m_hBackBuffer, m_hBitMap);
 	m_ground->Render(m_hBackBuffer);
-	m_Crowd[0]->Render(m_hBackBuffer);
-	m_Crowd[1]->Render(m_hBackBuffer);
+	for (int i = 0; i < MAX; i++)
+		m_Crowd[i]->Render(m_hBackBuffer);
 	m_elephant[0]->Render(m_hBackBuffer);
 	m_elephant[1]->Render(m_hBackBuffer);
 	m_miter->Render(m_hBackBuffer);
 
 	m_MoneyleftFirering->Render(m_hBackBuffer);
 	m_MoneyFirering->Render(m_hBackBuffer);
-	m_leftring->Render(m_hBackBuffer);
+	m_leftring[0]->Render(m_hBackBuffer);
+	m_leftring[1]->Render(m_hBackBuffer);
 	character->Render(m_hBackBuffer);
-	m_rightring->Render(m_hBackBuffer);
+	m_rightring[0]->Render(m_hBackBuffer);
+	m_rightring[1]->Render(m_hBackBuffer);
 
 	m_MoneyrightFirering->Render(m_hBackBuffer);
 
@@ -213,7 +271,7 @@ void GameManager::Render()
 	{
 		m_EndBox->Render(m_hBackBuffer);		
 	}
-	Score();
+
 	TextOut(m_hBackBuffer, 550, 50, m_charMiter, lstrlen(m_charMiter));
 	BitBlt(hdc, 0, 0, 1200, 650, m_hBackBuffer, 0, 0, SRCCOPY);
 	ReleaseDC(m_hWnd, hdc);

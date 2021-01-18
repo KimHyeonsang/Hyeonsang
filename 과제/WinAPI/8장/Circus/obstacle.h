@@ -10,29 +10,27 @@ protected:
 	BITMAP m_bit[2];
 	SIZE m_size[2];
 	RECT m_rect[2];
-
-	RECT m_Charactor_rt;
-	int m_count;
 	fire_State m_efire;
 	bool m_bScorecheck;
 	int m_iScore;
+	int speed;
 public:
-	virtual void Init(HDC _m_hBuffer,RECT player_rt) = 0;
+	virtual void Init(int x, int y ,HDC _m_hBuffer) = 0;
 	virtual void Render(HDC _m_hBuffer) = 0;
 	virtual void Update() {};
-	virtual int Score(int player_x) = 0;
-	virtual void replay() = 0;
+	virtual int Score(int player_x, State state) = 0;
+	virtual void replay(int x,int y) = 0;
 };
 
 class jar :public impediments
 {
 public:
 	jar();
-	virtual void Init(HDC _m_hBuffer, RECT player_rt);
+	virtual void Init(int x, int y,HDC _m_hBuffer);
 	virtual void Render(HDC _m_hBuffer);
-	virtual void Update(RECT rt);
-	virtual int Score(int player_x);
-	virtual void replay();
+	virtual void Update(Direction direction, float time);
+	virtual int Score(int player_x, State state);
+	virtual void replay(int x, int y);
 	inline RECT jarlocation()
 	{
 		return m_rect[0];
@@ -46,11 +44,11 @@ private:
 	RECT m_crash;
 public:
 	LeftFirering();
-	virtual void Init(HDC _m_hBuffer, RECT player_rt);
+	virtual void Init(int x,int y,HDC _m_hBuffer);
 	virtual void Render(HDC _m_hBuffer);
-	virtual void Update();
-	virtual int Score(int player_x);
-	virtual void replay();
+	virtual void Update(float time);
+	virtual int Score(int player_x, State state);
+	virtual void replay(int x, int y);
 	inline RECT ringlocation()
 	{
 		return m_crash;
@@ -62,16 +60,22 @@ class RightFirering :public impediments
 {
 private:
 	RECT m_crash;
+	int m_iRandomMoneyring;
 public:
 	RightFirering();
-	virtual void Init(HDC _m_hBuffer, RECT player_rt);
+	virtual void Init(int x, int y, HDC _m_hBuffer);
 	virtual void Render(HDC _m_hBuffer);
-	virtual void Update();
-	virtual int Score(int player_x) {return 0;};
-	virtual void replay();
+	virtual void Update(float time);
+	virtual int Score(int player_x, State state) {return 0;};
+	virtual void replay(int x, int y);
+	virtual void RandomCountReset(int n);
 	inline RECT ringlocation()
 	{
 		return m_crash;
+	}
+	inline int randommoneyring()
+	{
+		return m_iRandomMoneyring;
 	}
 	~RightFirering();
 };
@@ -80,18 +84,23 @@ class MoneyFirering :public impediments //충돌범위설정
 {
 private:
 	RECT m_crash;
+	bool m_brandem;
 public:
 	MoneyFirering();
-	virtual void Init(HDC _m_hBuffer, RECT player_rt);
+	virtual void Init(int x, int y,HDC _m_hBuffer);
 	virtual void Render(HDC _m_hBuffer);
-	virtual void Update();
-	virtual int Score(int player_x) {return 0;};
+	virtual void Update(float time);
+	virtual int Score(int player_x, State state) {return 0;};
 	virtual int moneyScore();
-	virtual void replay();
+	virtual void replay(int x, int y);
 	~MoneyFirering();
 	inline RECT ringlocation()
 	{
 		return m_crash;
+	}
+	inline bool ringcheck()
+	{
+		return m_brandem;
 	}
 	inline RECT money()
 	{
@@ -105,11 +114,11 @@ private:
 	RECT m_crash;
 public:
 	MoneyrightFirering();
-	virtual void Init(HDC _m_hBuffer, RECT player_rt);
+	virtual void Init(int x,int y,HDC _m_hBuffer);
 	virtual void Render(HDC _m_hBuffer);
-	virtual void Update();
-	virtual int Score(int player_x) {return 0;}; 
-	virtual void replay();
+	virtual void Update(float time);
+	virtual int Score(int player_x, State state) {return 0;};
+	virtual void replay(int x, int y);
 	~MoneyrightFirering();
 	inline RECT ringlocation()
 	{
@@ -123,11 +132,11 @@ private:
 	RECT m_crash;
 public:
 	MoneyleftFirering();
-	virtual void Init(HDC _m_hBuffer, RECT player_rt);
+	virtual void Init(int x, int y,HDC _m_hBuffer);
 	virtual void Render(HDC _m_hBuffer);
-	virtual void Update();
-	virtual int Score(int player_x);
-	virtual void replay();
+	virtual void Update(float time);
+	virtual int Score(int player_x, State state);
+	virtual void replay(int x, int y);
 	~MoneyleftFirering();
 	inline RECT ringlocation()
 	{

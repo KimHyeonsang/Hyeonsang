@@ -69,9 +69,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		hdc = GetDC(hWnd);
 		GameManager::GetInstance()->Init(hWnd);
 		return 0;
-	case WM_TIMER:
-		GameManager::GetInstance()->Update();
-		return 0;
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		return 0;
