@@ -4,14 +4,6 @@
 using namespace std;
 
 HDC hdc;
-HDC g_hBackBuffer;
-HDC g_hMemDC;
-
-HBITMAP g_hBackBitmap;
-
-
-BITMAP bit;
-
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 HINSTANCE g_hInst;
 char g_szClassName[256] = "Circus";
@@ -54,7 +46,6 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 		}
 	}
 	ReleaseDC(hWnd, hdc);
-	Sleep(1000);
 	return 0;
 }
 

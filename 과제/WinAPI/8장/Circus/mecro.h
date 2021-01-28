@@ -3,6 +3,9 @@
 #include<vector>
 using namespace std;
 
+#define FINISH 9
+#define RANDOM 1
+#define CRASH_TIME 50
 enum fire_State
 {
 	burn1,

@@ -1,6 +1,6 @@
 #pragma once
 #include"mecro.h"
-
+#define PIE 3.141592f
 class Character
 {
 private:
@@ -11,11 +11,9 @@ private:
 	HBITMAP m_OldBitMap[7];
 	State m_state;
 	Direction m_Direction;
-	bool m_bJumpcheck;
 
 	SIZE m_size;
 	int m_iHartcount;
-	int m_ibefore_y;
 
 	SIZE m_Winsize;
 	BITMAP m_bitWin;
@@ -27,8 +25,11 @@ private:
 	SIZE m_Diesize;
 	BITMAP m_bitdie;
 
-	int m_iafter;
-	int m_ibefore;
+	int m_iJumPower;
+	int m_ibefore_x;//¿Ã¿¸ x¡¬«•
+	DWORD		m_dwLastTime;
+	DWORD		m_dwCurTime;
+	float		m_fDeltaTime;
 public:
 	Character();
 	void Init(HWND hWnd,HDC _m_hBuffer);
@@ -36,9 +37,9 @@ public:
 	void Update(float time,int miter);
 	void PlayerKey(float time,int miter);
 	void hartbreaker();
-	void endlocation(RECT rt);
+	void endlocation();
 	void replay();
-	void Motion();
+	void DamageMotion();
 	inline RECT characterlocation()
 	{
 		return m_rect;

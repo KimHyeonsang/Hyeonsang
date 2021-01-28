@@ -33,6 +33,7 @@ private:
 	HDC m_hBackBuffer2;
 	HBITMAP m_BitMap2;
 	HBITMAP m_OldBitMap2;
+	BITMAP m_bit2;
 public:
 	virtual void Init(int x, int y, HDC _m_hBuffer);
 	virtual void Render(HDC _m_hBuffer);
@@ -73,7 +74,7 @@ public:
 	virtual void Init(int x, int y, HDC _m_hBuffer);
 	virtual void Render(HDC _m_hBuffer);
 	virtual void Update(Direction direction, float time);
-	virtual void replay(int x, int y) {};
+	virtual void replay(int x, int y);
 	inline RECT Endlocation()
 	{
 		return m_rect;

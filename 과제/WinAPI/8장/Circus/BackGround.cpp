@@ -29,41 +29,48 @@ void crowd::Init(int x, int y, HDC _m_hBuffer)
 	m_BitMap = (HBITMAP)LoadImage(NULL, "RES//back_normal.bmp", IMAGE_BITMAP, 0, 0,
 		LR_CREATEDIBSECTION | LR_DEFAULTSIZE | LR_LOADFROMFILE);//관중
 	m_OldBitMap = (HBITMAP)SelectObject(m_hBackBuffer, m_BitMap);
+	GetObject(m_BitMap, sizeof(BITMAP), &m_bit);
 
 	m_hBackBuffer2 = CreateCompatibleDC(_m_hBuffer);
 	m_BitMap2 = (HBITMAP)LoadImage(NULL, "RES//back_normal2.bmp", IMAGE_BITMAP, 0, 0,
 		LR_CREATEDIBSECTION | LR_DEFAULTSIZE | LR_LOADFROMFILE);//관중2
 	m_OldBitMap2 = (HBITMAP)SelectObject(m_hBackBuffer2, m_BitMap2);
-	GetObject(m_BitMap2, sizeof(BITMAP), &m_bit);
+	GetObject(m_BitMap2, sizeof(BITMAP), &m_bit2);
 	m_size.cx = m_bit.bmWidth;
 	m_size.cy = m_bit.bmHeight;
 	m_rect.left = x;
 	m_rect.top = y;
-	m_rect.right = m_rect.left + m_bit.bmWidth;
-	m_rect.bottom = m_rect.top + m_bit.bmHeight;
+	m_rect.right = m_rect.left + m_size.cx;
+	m_rect.bottom = m_rect.top + m_size.cy;
 	m_state = NOMAL;
 
 	m_ispeed = 40;
 }
 
 void crowd::Update(Direction direction, float time)
-{
+{	
 	if (direction == LEFT)
 	{
 		m_rect.left += m_ispeed * time;
 		m_rect.right += m_ispeed * time;
+		if (m_rect.right >= 1200)
+		{
+			m_rect.left = 0;
+			m_rect.right = m_rect.left + m_size.cx;
+		}
 	}
 	else if(direction == RIGHT)
 	{
-		m_rect.left -= m_ispeed * time;
-		m_rect.right -= m_ispeed * time;
-		if (m_rect.right <= 0)
+		if (m_rect.left <= 0)
 		{
-			m_rect.left = 1200;
+			m_rect.left = 1135;
 			m_rect.right = m_rect.left + m_bit.bmWidth;
 		}
+		m_rect.left -= m_ispeed * time;
+		m_rect.right -= m_ispeed * time;
 	}
 }
+
 void crowd::Render(HDC _m_hBuffer)
 {
 	if (m_state == WIN)
@@ -78,6 +85,7 @@ void crowd::Render(HDC _m_hBuffer)
 			m_state = WIN;
 	}
 }
+
 void crowd::replay(int x, int y)
 {
 	m_rect.left = x;
@@ -98,24 +106,33 @@ void Elephant::Init(int x, int y, HDC _m_hBuffer)
 	m_size.cy = m_bit.bmHeight;
 	m_rect.left = x;
 	m_rect.top = y;
+	m_rect.right = m_rect.left + m_size.cx;
+	m_rect.bottom = m_rect.top + m_size.cy;
 	m_ispeed = 40;
 }
+
 void Elephant::Update(Direction direction, float time)
 {
 	if (direction == LEFT)
 	{
 		m_rect.left += m_ispeed * time;
 		m_rect.right += m_ispeed * time;
+		if (m_rect.right >= 1200)
+		{
+			m_rect.left = 0;
+			m_rect.right = m_rect.left + m_size.cx;
+		}
 	}
 	else if(direction == RIGHT)
 	{
-		m_rect.left -= m_ispeed * time;
-		m_rect.right -= m_ispeed * time;
-		if (m_rect.left <= -1200)
+		if (m_rect.left <= 0)
 		{
-			m_rect.left = 1200;
+			m_rect.left = 1135;
 			m_rect.right = m_rect.left + m_bit.bmWidth;
 		}
+		m_rect.left -= m_ispeed * time;
+		m_rect.right -= m_ispeed * time;
+		
 	}
 }
 
@@ -127,7 +144,9 @@ void Elephant::Render(HDC _m_hBuffer)
 void Elephant::replay(int x, int y)
 {
 	m_rect.left = x;
+	m_rect.right = m_rect.left + m_size.cx;
 	m_rect.top = y;
+	m_rect.bottom = m_rect.top + m_size.cy;
 }
 
 void Miter::Init(int x, int y, HDC _m_hBuffer)
@@ -162,7 +181,7 @@ void Miter::Update(Direction direction, float time)
 			m_rect.left = 1200;
 			m_rect.right = m_rect.left + m_bit.bmWidth;
 			m_imitercount--;
-			wsprintf(m_charMiter, "%d", 10* m_imitercount);
+			wsprintf(m_charMiter, "%d", 10 * m_imitercount);
 		}
 	}
 }
@@ -176,7 +195,9 @@ void Miter::Render(HDC _m_hBuffer)
 void Miter::replay(int x, int y)
 {
 	m_rect.left = x;
+	m_rect.right = m_rect.left + m_size.cx;
 	m_rect.top = y;
+	m_rect.bottom = m_rect.top + m_size.cy;
 	m_imitercount = 10;
 	wsprintf(m_charMiter, "%d", 10 * m_imitercount);
 }
@@ -192,8 +213,8 @@ void EndBox::Init(int x, int y, HDC _m_hBuffer)
 	m_size.cy = m_bit.bmHeight;
 	m_rect.left = x;
 	m_rect.top = y;
-	m_rect.right = m_rect.left + m_bit.bmWidth;
-	m_rect.bottom = m_rect.top + m_bit.bmHeight;
+	m_rect.right = m_rect.left + m_size.cx * 1.5;
+	m_rect.bottom = m_rect.top + m_size.cy * 1.5;
 	m_ispeed = 40;
 }
 
@@ -208,7 +229,17 @@ void EndBox::Update(Direction direction, float time)
 		}
 	}
 }
+
 void EndBox::Render(HDC _m_hBuffer)
 {
 	TransparentBlt(_m_hBuffer, m_rect.left, m_rect.top, m_size.cx * 1.5, m_size.cy * 1.5, m_hBackBuffer, 0, 0, m_size.cx, m_size.cy, RGB(255, 0, 255));
 }
+
+void EndBox::replay(int x, int y)
+{
+	m_rect.left = x;
+	m_rect.right = m_rect.left + m_size.cx;
+	m_rect.top = y;
+	m_rect.bottom = m_rect.top + m_size.cy;
+}
+

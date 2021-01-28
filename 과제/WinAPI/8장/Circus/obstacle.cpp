@@ -66,7 +66,7 @@ void jar::Update(Direction direction, float time) //¿ŞÂÊÀ¸·Î ÀÌµ¿À» ÇÏ¸é ¿ŞÂÊÀ¸·
 }
 int jar::Score(int player_x, State state)
 {
-	if (player_x > m_rect[0].left && m_bScorecheck == true && state == JUMP)
+	if ((player_x >= m_rect[0].left && player_x <= m_rect[0].right) && m_bScorecheck == true && state == JUMP)
 	{
 		m_iScore = 50;
 		m_bScorecheck = false;
@@ -97,7 +97,7 @@ LeftFirering::LeftFirering()
 {
 	m_efire = burn1;
 	m_bScorecheck = true;
-	speed = 50;
+	speed = 40;
 }
 
 void LeftFirering::Init(int x,int y, HDC _m_hBuffer)
@@ -132,18 +132,18 @@ void LeftFirering::Init(int x,int y, HDC _m_hBuffer)
 
 	m_crash.bottom = m_rect[0].top + (m_size[0].cy * 2);
 	m_crash.top = m_crash.bottom - (m_size[0].cy / 3);
-	m_crash.right = m_crash.left + (m_size[0].cx * 0.5);
+	m_crash.right = m_crash.left + (m_size[0].cx * 1.5);
 }
 
-void LeftFirering::Update(float time)
+void LeftFirering::Update(Direction direction, float time)
 {
-if (m_rect[0].left <= -100 && m_rect[1].left <= -100)
+	if (m_rect[0].left <= -100 && m_rect[1].left <= -100)
 	{
 		m_rect[0].left = 1335;
 		m_rect[1].left = 1335;
 		m_bScorecheck = true;
 		m_crash.left = m_rect[0].left + 20;
-		m_crash.right = m_crash.left + (m_size[0].cx);
+		m_crash.right = m_crash.left + (m_size[0].cx * 1.5);
 	}
 	else
 	{
@@ -172,7 +172,7 @@ void LeftFirering::Render(HDC _m_hBuffer)
 }
 int LeftFirering::Score(int player_x, State state)
 {
-	if (player_x > m_crash.left && m_bScorecheck == true && state == JUMP)
+	if ((player_x >= m_crash.left && player_x <= m_crash.right) && m_bScorecheck == true && state == JUMP)
 	{
 		m_iScore = 100;
 		m_bScorecheck = false;
@@ -201,7 +201,7 @@ void LeftFirering::replay(int x, int y)
 	m_crash.left = m_rect[0].left + 20;
 	m_crash.bottom = m_rect[0].top + (m_size[0].cy * 2);
 	m_crash.top = m_crash.bottom - (m_size[0].cy / 3);
-	m_crash.right = m_crash.left + (m_size[0].cx * 0.5);
+	m_crash.right = m_crash.left + (m_size[0].cx * 1.5);
 }
 
 LeftFirering::~LeftFirering()
@@ -212,7 +212,7 @@ RightFirering::RightFirering()
 {
 	m_efire = burn1;
 	
-	speed = 50;
+	speed = 40;
 }
 
 void RightFirering::Init(int x,int y,HDC _m_hBuffer)
@@ -249,7 +249,7 @@ void RightFirering::Init(int x,int y,HDC _m_hBuffer)
 	m_crash.top = m_crash.bottom - (m_size[0].cy / 3);
 	m_crash.right = m_crash.left + (m_size[0].cx * 0.5);
 }
-void RightFirering::Update(float time)
+void RightFirering::Update(Direction direction, float time)
 {
 	if (m_rect[0].left <= -100 && m_rect[1].left <= -100)
 	{
@@ -319,7 +319,7 @@ MoneyFirering::MoneyFirering()
 	m_brandem = false;
 	m_iScore = 1000;
 
-	speed = 50;
+	speed = 40;
 }
 
 void MoneyFirering::Init(int x, int y,HDC _m_hBuffer)
@@ -339,7 +339,7 @@ void MoneyFirering::Init(int x, int y,HDC _m_hBuffer)
 	m_rect[0].bottom = m_rect[0].top + (m_size[0].cy * 2.5);
 }
 
-void MoneyFirering::Update(float time)
+void MoneyFirering::Update(Direction direction, float time)
 {
 	if (m_rect[0].left <= -100)
 	{
@@ -386,7 +386,7 @@ MoneyFirering::~MoneyFirering()
 
 MoneyrightFirering::MoneyrightFirering()
 {
-	speed = 50;
+	speed = 40;
 }
 void MoneyrightFirering::Init(int x, int y,HDC _m_hBuffer)
 {	
@@ -411,7 +411,7 @@ void MoneyrightFirering::Init(int x, int y,HDC _m_hBuffer)
 	m_crash.right = m_crash.left + m_size[0].cx;
 }
 
-void MoneyrightFirering::Update(float time)
+void MoneyrightFirering::Update(Direction direction, float time)
 {
 	if (m_rect[0].left <= -100)
 	{
@@ -448,7 +448,6 @@ void MoneyrightFirering::replay(int x,int y)
 	m_crash.right = m_crash.left + m_size[0].cx;
 }
 
-
 MoneyrightFirering::~MoneyrightFirering()
 {
 
@@ -457,7 +456,7 @@ MoneyrightFirering::~MoneyrightFirering()
 MoneyleftFirering::MoneyleftFirering()
 {
 	m_bScorecheck = true;
-	speed = 50;
+	speed = 40;
 }
 void MoneyleftFirering::Init(int x,int y,HDC _m_hBuffer)
 {
@@ -481,7 +480,7 @@ void MoneyleftFirering::Init(int x,int y,HDC _m_hBuffer)
 	m_crash.right = m_crash.left + (m_size[0].cx * 1.5);
 }
 
-void MoneyleftFirering::Update(float time)
+void MoneyleftFirering::Update(Direction direction, float time)
 {
 	if (m_rect[0].left <= -100)
 	{
@@ -507,7 +506,7 @@ void MoneyleftFirering::Render(HDC _m_hBuffer)
 }
 int MoneyleftFirering::Score(int player_x, State state)
 {
-	if (player_x > m_crash.left && m_bScorecheck == true && state == JUMP)
+	if ((player_x >= m_crash.left && player_x <= m_crash.right) && m_bScorecheck == true && state == JUMP)
 	{
 		m_iScore = 150;
 		m_bScorecheck = false;
@@ -534,6 +533,8 @@ void MoneyleftFirering::replay(int x,int y)
 	m_crash.top = m_crash.bottom - (m_size[0].cy / 3);
 	m_crash.right = m_crash.left + (m_size[0].cx * 1.5);
 }
+
+
 
 MoneyleftFirering::~MoneyleftFirering()
 {

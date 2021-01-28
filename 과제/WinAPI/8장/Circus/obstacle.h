@@ -14,10 +14,11 @@ protected:
 	bool m_bScorecheck;
 	int m_iScore;
 	int speed;
+
 public:
 	virtual void Init(int x, int y ,HDC _m_hBuffer) = 0;
 	virtual void Render(HDC _m_hBuffer) = 0;
-	virtual void Update() {};
+	virtual void Update(Direction direction, float time) {};
 	virtual int Score(int player_x, State state) = 0;
 	virtual void replay(int x,int y) = 0;
 };
@@ -46,7 +47,7 @@ public:
 	LeftFirering();
 	virtual void Init(int x,int y,HDC _m_hBuffer);
 	virtual void Render(HDC _m_hBuffer);
-	virtual void Update(float time);
+	virtual void Update(Direction direction, float time);
 	virtual int Score(int player_x, State state);
 	virtual void replay(int x, int y);
 	inline RECT ringlocation()
@@ -65,7 +66,7 @@ public:
 	RightFirering();
 	virtual void Init(int x, int y, HDC _m_hBuffer);
 	virtual void Render(HDC _m_hBuffer);
-	virtual void Update(float time);
+	virtual void Update(Direction direction, float time);
 	virtual int Score(int player_x, State state) {return 0;};
 	virtual void replay(int x, int y);
 	virtual void RandomCountReset(int n);
@@ -89,7 +90,7 @@ public:
 	MoneyFirering();
 	virtual void Init(int x, int y,HDC _m_hBuffer);
 	virtual void Render(HDC _m_hBuffer);
-	virtual void Update(float time);
+	virtual void Update(Direction direction, float time);
 	virtual int Score(int player_x, State state) {return 0;};
 	virtual int moneyScore();
 	virtual void replay(int x, int y);
@@ -116,7 +117,7 @@ public:
 	MoneyrightFirering();
 	virtual void Init(int x,int y,HDC _m_hBuffer);
 	virtual void Render(HDC _m_hBuffer);
-	virtual void Update(float time);
+	virtual void Update(Direction direction, float time);
 	virtual int Score(int player_x, State state) {return 0;};
 	virtual void replay(int x, int y);
 	~MoneyrightFirering();
@@ -134,7 +135,7 @@ public:
 	MoneyleftFirering();
 	virtual void Init(int x, int y,HDC _m_hBuffer);
 	virtual void Render(HDC _m_hBuffer);
-	virtual void Update(float time);
+	virtual void Update(Direction direction, float time);
 	virtual int Score(int player_x, State state);
 	virtual void replay(int x, int y);
 	~MoneyleftFirering();

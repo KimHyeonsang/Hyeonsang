@@ -6,7 +6,10 @@ Character::Character()
 {
 	m_state = WALK1;
 	m_iHartcount = 3;
-
+	m_iJumPower = 25;
+	m_dwLastTime = GetTickCount();;
+	m_dwCurTime = GetTickCount();;
+	m_fDeltaTime;
 }
 
 void Character::Init(HWND hWnd,HDC _m_hBuffer)
@@ -69,13 +72,11 @@ void Character::Init(HWND hWnd,HDC _m_hBuffer)
 
 	m_hart.cx = m_bithart.bmWidth;
 	m_hart.cy = m_bithart.bmHeight;
-	m_MoveSpeed = 30;
+	m_MoveSpeed = 40;
 	m_rect.left = 100;
 	m_rect.top = 450;
-	m_ibefore_y = m_rect.top;
 	m_rect.right = m_rect.left + m_size.cx;
 	m_rect.bottom = m_rect.top + m_size.cy;
-	m_bJumpcheck = false;
 }
 void Character::Render(HDC _m_hBuffer)
 {
@@ -136,10 +137,11 @@ void Character::PlayerKey(float time,int miter) //누른 키에 따른 상태 변화
 			m_rect.left = 0;
 			m_rect.right = m_rect.left + m_size.cx;
 		}
-		if (miter == 0)
+		if (miter == FINISH)
 		{
 			m_rect.left -= m_MoveSpeed * time;
 			m_rect.right -= m_MoveSpeed * time;
+			m_ibefore_x = m_rect.left;
 		}
 	}
 	else if (GetKeyState(VK_RIGHT) & 0x8000 && m_state != JUMP)
@@ -154,28 +156,41 @@ void Character::PlayerKey(float time,int miter) //누른 키에 따른 상태 변화
 			m_rect.left = m_rect.right - m_size.cx;
 			m_rect.right = 1200;
 		}
-		if (miter == 0)
+		if (miter == FINISH || m_rect.left <= 100)
 		{
 			m_rect.left += m_MoveSpeed * time;
 			m_rect.right += m_MoveSpeed * time;
+			m_ibefore_x = m_rect.left;
 		}
 	}
 	else if (m_state != JUMP)
 		m_Direction = IDLE;
 	if (GetKeyState(VK_SPACE) & 0x8000 && m_state != JUMP)//점프 상태일때는 한번더 점프가 불가능하게 막기위해
 	{
-		m_bJumpcheck = true;
 		m_state = JUMP;
 	}
 }
 
 void Character::Update(float time,int miter)
 {
+	m_dwCurTime = GetTickCount();
+	m_fDeltaTime = (m_dwCurTime - m_dwLastTime) / 150.0f;
 	PlayerKey(time, miter);
-	if (m_bJumpcheck == true && m_state == JUMP) //올라가는 점프상태일때
+	if (m_state == JUMP)
 	{
-		m_rect.top -= m_MoveSpeed * time * 1.5;
-		m_rect.bottom -= m_MoveSpeed * time * 1.5;
+		if (m_rect.top <= 450)
+		{
+			m_rect.top = m_fDeltaTime * m_fDeltaTime - m_iJumPower * m_fDeltaTime + 450;
+			m_rect.bottom = m_fDeltaTime * m_fDeltaTime - m_iJumPower * m_fDeltaTime + m_rect.top + m_size.cy;
+		}
+		else if (m_rect.top >= 450)
+		{
+			m_rect.top = 450;
+			m_rect.bottom = m_rect.top + +m_size.cy;
+			m_state = WALK1;
+			m_dwLastTime = m_dwCurTime;
+		}		
+
 		if (m_Direction == LEFT)
 		{
 			if (m_rect.left <= 0)
@@ -188,58 +203,26 @@ void Character::Update(float time,int miter)
 		{
 			if (m_rect.right >= 1200)
 			{
-				m_rect.left = m_rect.right - m_size.cx;;
+				m_rect.left = m_rect.right - m_size.cx;
 				m_rect.right = 1200;
 			}
-			if (miter == 0)
+			if (miter == FINISH)
 			{
 				m_rect.left += m_MoveSpeed * time;
 				m_rect.right += m_MoveSpeed * time;
 			}
-		}
-		if (m_rect.top <= m_ibefore_y - 180)
-		{
-			m_bJumpcheck = false;
 		}
 	}
-	else if(m_bJumpcheck == false && m_state == JUMP) //내려오는 점프상태일때
+	else
 	{
-		m_rect.top += m_MoveSpeed * time * 1.5;
-		m_rect.bottom += m_MoveSpeed * time * 1.5;
-		if (m_Direction == LEFT)
-		{
-			if (m_rect.left <= 0)
-			{
-				m_rect.left = 0;
-				m_rect.right = m_rect.left + m_size.cx;
-			}
-		}
-		else if (m_Direction == RIGHT)
-		{
-			if (m_rect.right >= 1200)
-			{
-				m_rect.left = m_rect.right - m_size.cx;;
-				m_rect.right = 1200;
-			}
-			if (miter == 0)
-			{
-				m_rect.left += m_MoveSpeed * time;
-				m_rect.right += m_MoveSpeed * time;
-			}
-		}
-		if (m_rect.top > m_ibefore_y)
-		{
-			m_Direction = IDLE;
-			m_state = WALK1;
-		}
-	}	
+		m_dwLastTime = m_dwCurTime;
+	}
 }
 
-void Character::endlocation(RECT rt)
+void Character::endlocation()//끝나는위치
 {
-	m_rect.top = m_ibefore_y - ((rt.bottom - rt.top)*1.5);
-	m_rect.bottom = m_ibefore_y - ((rt.bottom - rt.top)*1.5);
-	m_ibefore_y = m_rect.top;
+	m_rect.top -= 60;
+	m_rect.bottom -= 60;
 	m_state = WIN;
 }
 
@@ -247,15 +230,23 @@ void Character::replay()
 {
 	m_iHartcount = 3;
 	m_state = WALK1;
-	m_bJumpcheck = false;
+	m_rect.left = 100;
+	m_rect.right = m_rect.left + m_size.cx;
 }
 
-void Character::Motion()
+void Character::DamageMotion()//체력이 까졌을때 행동
 {
-	m_state = WALK1;
+	//뒤로 어느정도 이동하면 모습변경
+
+	if(m_rect.left <= 50 || m_rect.left + 80 <= m_ibefore_x) //이거리 아래일떄 모습변경
+		m_state = WALK1;
 	m_rect.top = 450;
+	if (m_rect.left >= 50) //이거리 이상일떄 후진
+	{
+		m_rect.left -= m_MoveSpeed;
+		m_rect.right -= m_MoveSpeed;
+	}	
 	m_rect.bottom = m_rect.top + m_size.cy;
-	m_bJumpcheck = false;
 }
 
 Character::~Character()

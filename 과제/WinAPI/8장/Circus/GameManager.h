@@ -4,7 +4,7 @@
 #include"Character.h"
 #include"obstacle.h"
 
-#define MAX 20
+#define MAX 19
 class GameManager
 {
 private:
@@ -15,8 +15,8 @@ private:
 	HWND m_hWnd;
 	static GameManager* m_This;
 	Ground* m_ground;
-	crowd* m_Crowd[MAX];
-	Elephant* m_elephant[2];
+	crowd* m_Crowd[2];
+//	Elephant* m_elephant[2];
 	Character* character;
 	Miter* m_miter;
 	jar* m_jar;
@@ -29,7 +29,7 @@ private:
 	MoneyrightFirering* m_MoneyrightFirering;
 	RECT rt;
 	bool m_bcrash;
-	int m_icount;
+	int	 m_iInvincibilityTime;
 
 	int m_iScore;
 	int m_irandem;
@@ -39,6 +39,12 @@ private:
 	DWORD		m_dwLastTime;
 	DWORD		m_dwCurTime;
 	float		m_fDeltaTime;
+
+	BackGround* back;
+	vector<BackGround*>background;
+	vector<BackGround*>::iterator background_iter;
+
+
 public:
 	static GameManager* GetInstance()
 	{

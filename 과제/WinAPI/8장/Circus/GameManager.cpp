@@ -5,7 +5,7 @@ GameManager* GameManager::m_This = NULL;
 GameManager::GameManager()
 {
 	m_bcrash = false;
-	m_icount = 0;
+	m_iInvincibilityTime = 0;
 	m_iScore = 0;
 	m_irandem = 0;
 	m_dwLastTime = GetTickCount();
@@ -24,14 +24,24 @@ void GameManager::Init(HWND hWnd)
 	m_ground = new Ground;
 	m_ground->Init(0,200,m_hBackBuffer);
 	for (int i = 0; i < MAX; i++)
-	{
-		m_Crowd[i] = new crowd;
-		m_Crowd[i]->Init(64 * i, 136, m_hBackBuffer);
+	{	
+		if (i == 10)
+		{
+			back = new Elephant;
+			back->Init(62 * i, 133, m_hBackBuffer);
+			background.push_back(back);
+		}
+		else
+		{
+			back = new crowd;
+			back->Init(62 * i, 136, m_hBackBuffer);
+			background.push_back(back);
+		}		
 	}
-	m_elephant[0] = new Elephant;
-	m_elephant[0]->Init(1134,133,m_hBackBuffer);
-	m_elephant[1] = new Elephant;
-	m_elephant[1]->Init(2334, 133, m_hBackBuffer);
+	m_Crowd[0] = new crowd;
+	m_Crowd[0]->Init(0, 136, m_hBackBuffer);
+	m_Crowd[1] = new crowd;
+	m_Crowd[1]->Init(1136, 136, m_hBackBuffer);
 	m_miter = new Miter;
 	m_miter->Init(800,555,m_hBackBuffer);
 	m_jar = new jar;
@@ -65,15 +75,22 @@ void GameManager::Update()
 	m_dwCurTime = GetTickCount();
 	m_fDeltaTime = (m_dwCurTime - m_dwLastTime) / 500.0f;
 
-	if (m_state == DIE)
+	if (m_state == DIE) //목숨이 까졌을떄
 	{
-		if (m_fDeltaTime >= 2)
+		if (m_fDeltaTime >= 0.1f)
 		{
-			replay();
-			m_state = NOMAL;
-			m_icount = 0;
-			m_iScore = 0;
-		}			
+			m_iInvincibilityTime++;
+			character->DamageMotion();
+			Render();
+
+			if (m_iInvincibilityTime == 3)
+			{
+				
+				m_state = NOMAL;
+				m_iInvincibilityTime = 0;
+			}
+			m_dwLastTime = m_dwCurTime;
+		}
 	}
 	else if (m_fDeltaTime >= 0.08f)
 	{
@@ -87,24 +104,43 @@ void GameManager::Update()
 		}
 		else
 		{
-			if (m_bcrash == true)//재충돌 지연시간
-				m_icount++;
+			if (m_bcrash == true)//재충돌 지연시간(무적시간)
+				m_iInvincibilityTime++;
 			if (m_state == WIN )
 			{
-				m_icount = 0;
-				m_iScore = 0;
+				m_iInvincibilityTime = 0;
 				Render();
+				m_dwLastTime = m_dwCurTime;
 				return;
 			}
-			if (m_icount == 10)
+			if (m_iInvincibilityTime == CRASH_TIME)
 			{
-				m_icount = 0;
+				m_iInvincibilityTime = 0;
 				m_bcrash = false;
 			}
 
 			character->Update(m_fDeltaTime, m_miter->miter());
+			m_leftring[0]->Update(character->direction(), m_fDeltaTime);
+			m_rightring[0]->Update(character->direction(), m_fDeltaTime);
+
+			if (m_rightring[1]->randommoneyring() == RANDOM) //랜덤숫자가 1일때
+			{
+				m_MoneyFirering->Update(character->direction(), m_fDeltaTime);
+				m_MoneyleftFirering->Update(character->direction(), m_fDeltaTime);
+				m_MoneyrightFirering->Update(character->direction(), m_fDeltaTime);
+
+				if (m_MoneyrightFirering->ringlocation().left <= -100)
+				{
+					m_rightring[1]->RandomCountReset(1);
+				}
+			}
+			else
+			{
+				m_leftring[1]->Update(character->direction(), m_fDeltaTime);
+				m_rightring[1]->Update(character->direction(), m_fDeltaTime);
+			}
 			crash();
-			if (m_miter->miter() == 0) //0미터일떄
+			if (m_miter->miter() == FINISH) //0미터일떄
 			{
 				m_EndBox->Update(character->direction(), m_fDeltaTime);
 
@@ -118,39 +154,20 @@ void GameManager::Update()
 			{
 				if (character->direction() != IDLE)
 				{
-					for (int i = 0; i < MAX; i++)
-						m_Crowd[i]->Update(character->direction(), m_fDeltaTime);
-					m_elephant[0]->Update(character->direction(), m_fDeltaTime);
-					m_elephant[1]->Update(character->direction(), m_fDeltaTime);
+					for (background_iter = background.begin();background_iter != background.end(); background_iter++)
+					{
+						back = *background_iter;
+						back->Update(character->direction(), m_fDeltaTime);
+					}
 					m_jar->Update(character->direction(), m_fDeltaTime);
-					m_miter->Update(character->direction(), m_fDeltaTime);
+					m_miter->Update(character->direction(), m_fDeltaTime);					
 				}
 			}
-			m_leftring[0]->Update(m_fDeltaTime);
-			m_rightring[0]->Update(m_fDeltaTime);
-
-			if (m_rightring[1]->randommoneyring() == 1) //랜덤숫자가 1일때
-			{
-				m_MoneyFirering->Update(m_fDeltaTime);
-				m_MoneyleftFirering->Update(m_fDeltaTime);
-				m_MoneyrightFirering->Update(m_fDeltaTime);
-
-				if (m_MoneyrightFirering->ringlocation().left <= -100) 
-				{
-					m_rightring[1]->RandomCountReset(1);
-				}
-			}
-			else
-			{
-				m_leftring[1]->Update(m_fDeltaTime);
-				m_rightring[1]->Update(m_fDeltaTime);
-			}
-
 			Score();
 			Render();
+			m_dwLastTime = m_dwCurTime;
 			InvalidateRect(m_hWnd, NULL, false);
 		}
-		m_dwLastTime = m_dwCurTime;
 	}
 }
 void GameManager::Score()
@@ -159,7 +176,6 @@ void GameManager::Score()
 	m_iScore += m_leftring[0]->Score(character->characterlocation().left, character->state());
 	m_iScore += m_leftring[1]->Score(character->characterlocation().left, character->state());
 	m_iScore += m_MoneyleftFirering->Score(character->characterlocation().left, character->state());
-	
 	wsprintf(m_charMiter, "%d점", m_iScore);
 }
 void GameManager::crash()
@@ -174,10 +190,14 @@ void GameManager::crash()
 		}
 		else if (IntersectRect(&rt, &character->characterlocation(), &m_EndBox->Endlocation()))//충돌이 캐릭과 단상이면
 		{
-			character->endlocation(m_EndBox->Endlocation()); //캐릭터모션
-			for(int i=0;i<MAX;i++)
-				m_Crowd[i]->End();
-			
+			character->endlocation(); //캐릭터모션
+			for (background_iter = background.begin();background_iter != background.end(); background_iter++)
+			{
+				back = *background_iter;
+				back->End();
+			}
+			m_Crowd[0]->End();
+			m_Crowd[1]->End();
 			m_state = WIN;
 		}
 		else if (IntersectRect(&rt, &character->characterlocation(), &m_rightring[0]->ringlocation()))//충돌이 캐릭과 일반 오른쪽불타는링일떄
@@ -226,12 +246,21 @@ void GameManager::crash()
 
 void GameManager::replay()
 {
-	character->Motion();
-	for (int i = 0; i < MAX; i++)
-		m_Crowd[i]->replay(64 * i, 136);
-
-	m_elephant[0]->replay(1134, 133);
-	m_elephant[1]->replay(2334, 133);
+	character->DamageMotion();
+	int number = 0;
+	for (background_iter = background.begin();background_iter != background.end(); background_iter++)
+	{
+		back = *background_iter;
+		if (number == 10)
+		{
+			back->replay(62 * number, 133);
+		}
+		else
+		{
+			back->replay(62 * number, 136);
+		}
+		number++;
+	}
 	m_miter->replay(800, 555);
 	m_jar->replay(700,470);
 	m_MoneyleftFirering->replay(1300,210);
@@ -241,7 +270,11 @@ void GameManager::replay()
 	m_leftring[1]->replay(1800, 210);
 	m_rightring[1]->replay(1835, 210);	
 	m_MoneyrightFirering->replay(1335,210);
+	m_EndBox->replay(1300, 470);
+	m_iScore = 0;
+	m_state = NOMAL;
 }
+
 
 void GameManager::Render()
 {
@@ -250,10 +283,13 @@ void GameManager::Render()
 	m_hBitMap = CreateCompatibleBitmap(hdc, 1200, 600);
 	m_hOldBitMap = (HBITMAP)SelectObject(m_hBackBuffer, m_hBitMap);
 	m_ground->Render(m_hBackBuffer);
-	for (int i = 0; i < MAX; i++)
-		m_Crowd[i]->Render(m_hBackBuffer);
-	m_elephant[0]->Render(m_hBackBuffer);
-	m_elephant[1]->Render(m_hBackBuffer);
+	m_Crowd[0]->Render(m_hBackBuffer);
+	m_Crowd[1]->Render(m_hBackBuffer);
+	for (background_iter = background.begin();background_iter != background.end(); background_iter++)
+	{
+		back = *background_iter;
+		back->Render(m_hBackBuffer);
+	}	
 	m_miter->Render(m_hBackBuffer);
 
 	m_MoneyleftFirering->Render(m_hBackBuffer);
@@ -267,7 +303,7 @@ void GameManager::Render()
 	m_MoneyrightFirering->Render(m_hBackBuffer);
 
 	m_jar->Render(m_hBackBuffer);
-	if (m_miter->miter() == 10)
+	if (m_miter->miter() == FINISH)
 	{
 		m_EndBox->Render(m_hBackBuffer);		
 	}
